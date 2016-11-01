@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   get '/cart', to: "cart#index"
   post '/cart', to: "cart#create"
 
+  root 'sessions#index'
+
+  get '/login', to: 'sessions#new'
+
+  
+
 end
