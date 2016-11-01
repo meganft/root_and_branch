@@ -1,6 +1,6 @@
 <h2> Your Cart </h2>
 <% @items.each do |id, count| %>
-  <% item = Item.find(id) %>
+  <% item = find_item(id) %>
   Title:<%= item.title %></br>
   Price:<%= item.price %></br>
   Description:<%= item.description %></br>
