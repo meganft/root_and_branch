@@ -1,0 +1,10 @@
+<h2> Your Cart </h2>
+<% @items.each do |id, count| %>
+  <% item = find_item(id) %>
+  Title:<%= item.title %></br>
+  Price:<%= item.price %></br>
+  Description:<%= item.description %></br>
+  <%= image_tag(item.image) %></br>
+<% end %>
+
+Total: <%= convert_to_currency(@total_price) %>
