@@ -27,7 +27,7 @@ describe "visitor adds items to cart" do
 
     expect(current_path).to eq cart_path
     expect(page).to_not have_content item.title
-    expect(page).to have_content "Total: 0"
+    expect(page).to have_content "Total: $0.00"
   end
 
   scenario "they add multiple items to a cart" do
@@ -46,7 +46,7 @@ describe "visitor adds items to cart" do
 
     expect(page).to have_content item1.title
     expect(page).to have_content item2.title
-    expect(page).to have_content "Total: #{total_price}"
+    expect(page).to have_content "Total: $#{total_price}0"
   end
 
   scenario "they add the same item twice" do
@@ -65,7 +65,7 @@ describe "visitor adds items to cart" do
 
     expect(page).to have_content item1.title
     expect(page).to_not have_content item2.title
-    expect(page).to have_content "Total: #{total_price}"
+    expect(page).to have_content "Total: $#{total_price}0"
   end
 
 end
