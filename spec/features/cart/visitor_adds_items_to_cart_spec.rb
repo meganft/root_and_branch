@@ -6,11 +6,9 @@ describe "visitor adds items to cart" do
     item1, item2 = category.items
 
     visit category_path(category)
-    save_and_open_page
     within(".item_#{item1.id}") do
       click_on "Add to cart"
     end
-    save_and_open_page
     click_on "Cart"
 
     expect(current_path).to eq cart_path

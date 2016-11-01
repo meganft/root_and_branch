@@ -1,4 +1,6 @@
-<% @items.each do |item| %>
+<h2> Your Cart </h2>
+<% @items.each do |id, count| %>
+  <% item = Item.find(id) %>
   <%= item.title %>
   <%= item.price %>
   <%= item.description %>
