@@ -1,10 +1,10 @@
 <h2> Your Cart </h2>
 <% @items.each do |id, count| %>
   <% item = Item.find(id) %>
-  <%= item.title %>
-  <%= item.price %>
-  <%= item.description %>
-  <%= image_tag(item.image) %>
+  Title:<%= item.title %></br>
+  Price:<%= item.price %></br>
+  Description:<%= item.description %></br>
+  <%= image_tag(item.image) %></br>
 <% end %>
 
 Total: <%= @total %>
