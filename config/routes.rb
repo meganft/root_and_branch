@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :items, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  resources :items, only: [:index, :show]
   resources :categories, only: [:show]
 
   get '/cart', to: "cart#index"
@@ -12,6 +12,6 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
 
-  
+
 
 end
