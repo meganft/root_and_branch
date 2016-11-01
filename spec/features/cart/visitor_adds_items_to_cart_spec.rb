@@ -1,14 +1,16 @@
 require 'rails_helper'
 
 describe "visitor adds items to cart" do
-  scenario "they select an item" do
+  scenario "they select an item from category page" do
     category = create(:item_on_category)
     item1, item2 = category.items
 
     visit category_path(category)
-    within("#{item1.title}") do
+    save_and_open_page
+    within(".item_#{item1.id}") do
       click_on "Add to cart"
     end
+    save_and_open_page
     click_on "Cart"
 
     expect(current_path).to eq cart_path
