@@ -15,7 +15,7 @@ describe "visitor adds items to cart" do
     expect(page).to have_content item1.title
     expect(page).to have_content item1.description
     expect(page).to have_content item1.price
-    expect(page).to have_css "img[src*=#{item1.image}]"
+    expect(page).to have_css "img[src*='#{item1.image}']"
     expect(page).to have_content item1.price
   end
 

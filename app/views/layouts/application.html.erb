@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <body>
-    <%= button_to "Cart", cart_path %>
+    <%= link_to "Cart", cart_path, class: "btn btn-danger" %>
     <%= yield %>
   </body>
 </html>
