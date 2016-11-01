@@ -1,7 +1,8 @@
 <h1>All Items</h1>
 
+<div class="row">
 <% @items.each do |item| %>
-  <%= image_tag(item.image) %><br>
-  <%= item.title %>; <%= number_to_currency(item.price) %><br>
-  <%= item.description %><br>
+  <div class="col-md-4"><%= link_to image_tag(item.image, class: "img-thumbnail"), item_path(item) %><br>
+  <%= item.title %>; <%= number_to_currency(item.price) %><br></div>
 <% end %>
+</div>
