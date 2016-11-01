@@ -2,7 +2,7 @@ class CartController < ApplicationController
 
   def index
     @items = @cart.contents
-    @total = @cart.total
+    @total_price = @cart.total_price
   end
 
   def create
