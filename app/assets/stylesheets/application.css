@@ -46,3 +46,13 @@
  .card-text {
    color: #5b5a4f;
  }
+
+ .split {
+   display:block;margin:2px;
+ }
+
+ .split span {
+   display:block;
+   color: #a55538;
+   font-weight: lighter;
+ }
