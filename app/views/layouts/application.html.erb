@@ -14,12 +14,13 @@
 
   </head>
 
-
 <%= render partial: "layouts/navbar" %>
 
-
   <body>
-
+    <% flash.each do |type, message| %>
+    <%= message %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
