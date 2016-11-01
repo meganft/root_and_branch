@@ -1,10 +1,19 @@
-<h2> Your Cart </h2>
-<% @items.each do |id, count| %>
-  <% item = find_item(id) %>
-  Title:<%= item.title %></br>
-  Price:<%= item.price %></br>
-  Description:<%= item.description %></br>
-  <%= image_tag(item.image) %></br>
-<% end %>
-
-Total: <%= convert_to_currency(@total_price) %>
+<div class="container" style="background-color:#e7e8ce; padding: 20px;">
+    <h2 class="cart_header"> Your Cart </h2>
+    <% @items.each do |id, count| %>
+    <div class="row">
+    <div class="col-md-3"></div>
+    <% item = find_item(id) %>
+    <div class="col-md-3"><%= image_tag(item.image, class: "img-thumbnail") %></div>
+    <div class="col-md-3" style="text-align:left">
+      <p>Title: <%= item.title %></p>
+      <p>Price: <span style="color:#a55538"><%= item.price %></span></p>
+      <p>Description: <%= item.description %></p>
+    </div>
+    <div class="col-md-3"></div>
+  </div><hr>
+    <% end %>
+  <div class="row">
+    Total: <%= convert_to_currency(@total_price) %>
+  </div>
+</div>
