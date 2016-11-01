@@ -4,11 +4,14 @@
     <div class="row">
     <div class="col-md-3"></div>
     <% item = find_item(id) %>
+    <div class="item_<%= item.id %>">
     <div class="col-md-3"><%= image_tag(item.image, class: "img-thumbnail") %></div>
     <div class="col-md-3" style="text-align:left">
       <p>Title: <%= item.title %></p>
       <p>Price: <span style="color:#a55538"><%= item.price %></span></p>
       <p>Description: <%= item.description %></p>
+      <%= link_to "Remove", cart_path(item_id: item.id), method: "delete" %>
+    </div>
     </div>
     <div class="col-md-3"></div>
   </div><hr>
