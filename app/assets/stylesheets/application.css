@@ -23,14 +23,19 @@
  .navbar-default .navbar-nav > li > a {
      color:#e7e8ce;
      font-family: 'Bungee Hairline', cursive;
-     font-size: 1.5em;
+     font-size: 1.25em;
  }
 
-
+ .navbar-header {
+   float: left;
+   text-align: center;
+   width:100%;
+ }
  .navbar-default .navbar-brand {
      color:#e7e8ce;
       font-family: 'Bungee Hairline', cursive;
       font-size: 1.75em;
+      float: none;
  }
 
  body {
