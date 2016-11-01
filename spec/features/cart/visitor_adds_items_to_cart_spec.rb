@@ -20,10 +20,12 @@ describe "visitor adds items to cart" do
   end
 
   scenario "they visit the cart without items" do
+    item = create(:item)
+
     visit cart_path
 
     expect(current_path).to eq cart_path
-    exepct(page).to_not have_content item1.title
-    expect(page).to have_content "total = 0"
+    expect(page).to_not have_content item.title
+    expect(page).to have_content "Total: 0"
   end
 end
