@@ -13,3 +13,51 @@
  *= require_tree .
  *= require_self
  */
+
+ .navbar-default {
+   background: none;
+   border: none;
+
+ }
+
+ .navbar-default .navbar-nav > li > a {
+     color:#e7e8ce;
+     font-family: 'Bungee Hairline', cursive;
+     font-size: 1.25em;
+ }
+
+ .navbar-header {
+   float: left;
+   text-align: center;
+   width:100%;
+ }
+ .navbar-default .navbar-brand {
+     color:#e7e8ce;
+      font-family: 'Bungee Hairline', cursive;
+      font-size: 1.75em;
+      float: none;
+ }
+
+ body {
+   background-color: #778467;
+ }
+
+ .indexheader {
+   font-family: 'Raleway', sans-serif;
+   color:#e7e8ce;
+   font-weight: lighter;
+ }
+
+ .card-text {
+   color: #5b5a4f;
+ }
+
+ .split {
+   display:block;margin:2px;
+ }
+
+ .split span {
+   display:block;
+   color: #a55538;
+   font-weight: lighter;
+ }
