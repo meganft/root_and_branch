@@ -7,10 +7,15 @@ describe "a visitor visits items index" do
     visit items_path
 
     expect(page).to have_content item1.title
+    expect(page).to have_content "$#{item1.price}0"
     expect(page).to have_css "img[src*='#{item1.image}']"
+
     expect(page).to have_content item2.title
+    expect(page).to have_content "$#{item2.price}0"
     expect(page).to have_css "img[src*='#{item2.image}']"
+
     expect(page).to have_content item3.title
+    expect(page).to have_content "$#{item3.price}0"
     expect(page).to have_css "img[src*='#{item3.image}']"
   end
 end
