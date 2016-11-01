@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   root 'sessions#index'
 
   get '/login', to: 'sessions#new'
+  
+  get '/logout', to: 'sessions#destroy'
 
   resources :users, only: [:new, :create, :show]
 

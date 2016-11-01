@@ -6,7 +6,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
+
       redirect_to dashboard_path
+      flash[:success] = "Logged in as #{@user.name}"
     else
       flash.now[:error] = "Please try again."
       render :new
@@ -14,6 +17,8 @@ class UsersController < ApplicationController
   end
 
   def show
+
+    @user = current_user
   end
 
   private
