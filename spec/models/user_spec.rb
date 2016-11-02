@@ -34,4 +34,10 @@ RSpec.describe User, type: :model do
       end
     end
   end
+  describe "relationships" do
+    it "has many orders" do
+      user = User.create(name: "Bob", email: "cats@cats.com", password: "cats")
+      expect(user).to respond_to(:orders)
+    end
+  end
 end
