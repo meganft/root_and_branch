@@ -11,6 +11,11 @@
         <p>Price: <span style="color:#a55538"><%= item.price %></span></p>
         <p>Description: <%= item.description %></p>
         <p>Quantity: <%= count %>
+        <%= link_to cart_path(item_id: item.id), method: "patch" do %>
+          <button type="button" class="btn btn-default" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+          </button>
+        <% end %>
         <%= link_to "Remove", cart_path(item_id: item.id), method: "delete" %>
       </div>
     </div>

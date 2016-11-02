@@ -18,11 +18,16 @@ describe "visitor can adjust quantity of item in cart" do
     end
   end
 
+  # scenario "they can decrease quantity of items" do
+  #   visit cart_path
+  #
+  #   within(".item_#{@item1.id}") do
+  #     click_on
+  #   end
+  # end
+
   scenario "they can increase quantity of items" do
 
   end
 
-  scenario "they can decrease quantity of items" do
-
-  end
 end

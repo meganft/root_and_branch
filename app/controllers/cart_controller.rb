@@ -12,11 +12,18 @@ class CartController < ApplicationController
     redirect_to cart_path
   end
 
+  def update
+    item = Item.find(params[:item_id])
+    @cart.decrease_item(item.id)
+    session[:cart] = @cart.contents
+    redirect_to cart_path
+  end
+
   def destroy
     item = Item.find(params[:item_id])
     @cart.remove_item(item.id)
     flash[:success] = "Successfully removed #{view_context.link_to item.title, item_path(item)} from cart."
-    session[:cart] = @cart.contents 
+    session[:cart] = @cart.contents
     redirect_to cart_path
   end
 
