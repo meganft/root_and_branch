@@ -72,6 +72,9 @@
   background-color: #768cab;
   border: white;
 }
+.btn-success:hover {
+  background-color: #2c73d5; 
+}
 
 .btn-danger {
   background-color: #c16848;
@@ -81,4 +84,8 @@
 .btn-warning {
   background-color: #da9e3c;
   border: white;
+}
+
+.quantity-buttons {
+  padding-left: 15px;
 }
