@@ -22,4 +22,11 @@
   <div class="row">
     Total: <%= convert_to_currency(@total_price) %>
   </div>
+  <div class="row">
+    <% if current_user %>
+    Checkout
+    <% else %>
+    <%= link_to "Login", login_path %> or <%= link_to "Create Account", new_user_path %> to Checkout
+    <% end %>
+  </div>
 </div>
