@@ -19,10 +19,21 @@ describe "visitor can adjust quantity of item in cart" do
   end
 
   scenario "they can decrease quantity of items" do
-    visit cart_path
+    visit category_path(@category)
+    within(".item_#{@item1.id}") do
+      click_on "Add to cart"
+    end
 
     within(".item_#{@item1.id}") do
-      click_on
+      expect(page).to have_content("Quantity: 2")
+    end
+
+    within(".item_#{@item1.id}") do
+      click_on "-"
+    end
+
+    within(".item_#{@item1.id}") do
+      expect(page).to have_content("Quantity: 1")
     end
   end
 
