@@ -41,7 +41,6 @@ describe "user visits orders index" do
     visit orders_path
     click_on("Order ##{order.id} placed #{order.created_at.to_date}")
 
-
     expect(current_path).to eq(order_path(order))
     expect(page).to have_link("cat sweater", href: item_path(item1))
     expect(page).to have_link("dog sweater", href: item_path(item2))
