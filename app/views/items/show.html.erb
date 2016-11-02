@@ -7,6 +7,7 @@
       <h2 class="item_title"><%= @item.title %></h2>
       <p>Price: <span style="color: #a55538"><%= number_to_currency(@item.price) %></span></p>
       <p>Description: <%= @item.description %></p>
+      <%= button_to "Add to cart", cart_path(item_id: @item.id), class: "btn btn-success" %>
     </div>
   </div>
 

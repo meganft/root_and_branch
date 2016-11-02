@@ -67,3 +67,18 @@
    color:#5b5a4f;
    font-weight: lighter;
  }
+
+.btn-success {
+  background-color: #768cab;
+  border: white;
+}
+
+.btn-danger {
+  background-color: #c16848;
+  border: white;
+}
+
+.btn-warning {
+  background-color: #da9e3c;
+  border: white;
+}
