@@ -13,6 +13,6 @@ describe "a visitor visits root path" do
 
     expect(page).to have_field(:email)
     expect(page).to have_field(:password)
-    # expect(page).to have_link("Create Account", new_user_path)
+    expect(page).to have_link("Create Account", new_user_path)
   end
 end
