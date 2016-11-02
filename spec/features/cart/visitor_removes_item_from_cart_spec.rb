@@ -13,7 +13,7 @@ describe "visitor removes item from cart" do
   scenario "they select an item to delete" do
     visit cart_path
     within(".item_#{@item1.id}") do
-      click_on "Remove"
+      click_on "x"
     end
 
     expect(page).to_not have_content @item1.description
