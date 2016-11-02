@@ -1,21 +1,24 @@
 <div class="container" style="background-color:#e7e8ce; padding: 20px;">
-    <h2 class="cart_header"> Your Cart </h2>
-    <% @items.each do |id, count| %>
-    <div class="row">
+  <h2 class="cart_header"> Your Cart </h2>
+  <% @items.each do |id, count| %>
+  <div class="row">
     <div class="col-md-3"></div>
     <% item = find_item(id) %>
     <div class="item_<%= item.id %>">
-    <div class="col-md-3"><%= image_tag(item.image, class: "img-thumbnail") %></div>
-    <div class="col-md-3" style="text-align:left">
-      <p>Title: <%= item.title %></p>
-      <p>Price: <span style="color:#a55538"><%= item.price %></span></p>
-      <p>Description: <%= item.description %></p>
-      <%= link_to "Remove", cart_path(item_id: item.id), method: "delete" %>
-    </div>
+      <div class="col-md-3"><%= image_tag(item.image, class: "img-thumbnail") %></div>
+      <div class="col-md-3" style="text-align:left">
+        <p>Title: <%= item.title %></p>
+        <p>Price: <span style="color:#a55538"><%= number_to_currency(item.price) %></span></p>
+        <p>Description: <%= item.description %></p>
+        <p>Quantity: <%= count %>
+        <%= link_to "-", cart_path(item_id: item.id, change_type: "decrease"), method: "patch", class: "btn btn-danger" %>
+        <%= link_to "+", cart_path(item_id: item.id, change_type: "increase"), method: "patch", class: "btn btn-success" %><br>
+        <%= link_to "Remove", cart_path(item_id: item.id), method: "delete" %>
+      </div>
     </div>
     <div class="col-md-3"></div>
   </div><hr>
-    <% end %>
+  <% end %>
   <div class="row">
     Total: <%= convert_to_currency(@total_price) %>
   </div>
