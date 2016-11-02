@@ -68,4 +68,18 @@ describe "visitor adds items to cart" do
     expect(page).to have_content "Total: $#{total_price}0"
   end
 
+  scenario "they can link to back the item added" do
+    category = create(:item_on_category)
+    item1, item2 = category.items
+
+    visit category_path(category)
+    within(".item_#{item1.id}") do
+      click_on "Add to cart"
+    end
+
+    within(".item_#{item1.id}") do
+      expect(page).to have_link("#{item1.title}", href: item_path(item1))
+    end
+  end
+
 end
