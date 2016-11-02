@@ -28,6 +28,8 @@ class Cart
     contents.delete(item_id.to_s) if contents[item_id.to_s] == 0
   end
 
-
+  # def item_quantity(item)
+  #   @contents[item.id]
+  # end
 
 end
