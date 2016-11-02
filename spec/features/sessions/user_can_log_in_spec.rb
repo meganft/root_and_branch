@@ -15,7 +15,7 @@ describe "a user can log in" do
     expect(page).to have_content("#{user.email}")
 
     within(:css, ".float-xs-right") do
-      expect(page).to have_content("Logout")
+      expect(page).to have_content("Logout #{user.name}")
       expect(page).to_not have_content("Login")
     end
   end
@@ -34,7 +34,7 @@ describe "a user can log in" do
 
       within(:css, ".float-xs-right") do
         expect(page).to have_content("Login")
-        expect(page).to_not have_content("Logout")
+        expect(page).to_not have_content("Logout #{user.name}")
       end
     end
 
@@ -51,7 +51,7 @@ describe "a user can log in" do
 
       within(:css, ".float-xs-right") do
         expect(page).to have_content("Login")
-        expect(page).to_not have_content("Logout")
+        expect(page).to_not have_content("Logout #{user.name}")
       end
     end
   end
