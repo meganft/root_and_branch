@@ -11,9 +11,9 @@
         <p>Price: <span style="color:#a55538"><%= number_to_currency(item.price) %></span></p>
         <p>Description: <%= item.description %></p>
         <p>Quantity: <%= count %>
-            <%= link_to "+", cart_path(item_id: item.id, change_type: "increase"), method: "patch", class: "btn btn-success" %>
-            <%= link_to "-", cart_path(item_id: item.id, change_type: "decrease"), method: "patch", class: "btn btn-warning" %>
-            <%= link_to "x", cart_path(item_id: item.id), method: "delete", class: "btn btn-danger" %>
+            <%= link_to "+", cart_path(item_id: item.id, change_type: "increase"), method: "patch", class: "btn btn-success btn-sm" %>
+            <%= link_to "-", cart_path(item_id: item.id, change_type: "decrease"), method: "patch", class: "btn btn-warning btn-sm" %>
+            <%= link_to "x", cart_path(item_id: item.id), method: "delete", class: "btn btn-danger btn-sm" %>
         </p>
         <p>Subtotal: <%= calculate_subtotal(item.price, count) %></p>
       </div>
