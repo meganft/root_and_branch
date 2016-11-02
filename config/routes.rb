@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :users, only: [:new, :create, :show]
-  
-  resources :orders, only: [:index]
+
+  resources :orders, only: [:index, :show]
 
   get '/dashboard', to: 'users#show'
 end
