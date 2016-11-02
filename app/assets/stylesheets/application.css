@@ -37,6 +37,9 @@
       font-size: 1.75em;
       float: none;
  }
+ a {
+   color: #014c8c;
+ }
 
  body {
    background-color: #778467;
@@ -62,8 +65,30 @@
    font-weight: lighter;
  }
 
- .cart_header {
+ .cart_header, .item_title {
    font-family: 'Raleway', sans-serif;
    color:#5b5a4f;
    font-weight: lighter;
  }
+
+.btn-success {
+  background-color: #768cab;
+  border: white;
+}
+.btn-success:hover {
+  background-color: #014c8c;
+}
+
+.btn-danger {
+  background-color: #c16848;
+  border: white;
+}
+
+.btn-danger:hover {
+  background-color: #ad301d;
+}
+
+.btn-warning {
+  background-color: #da9e3c;
+  border: white;
+}
