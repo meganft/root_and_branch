@@ -1,0 +1,10 @@
+<h1>Order <%= @order.id %> placed <%= @order.created_at.to_date %></h2>
+
+<% @items.each do |item| %>
+  <%= link_to item.title, item_path(item) %>: 1
+  <%= item.price %>
+<% end %>
+
+Order Status: <%= @status.name %> <%= @status.created_at %>
+
+Total: <%= number_to_currency(@order.order_total) %>
