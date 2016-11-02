@@ -7,13 +7,14 @@
     <div class="item_<%= item.id %>">
       <div class="col-md-3"><%= image_tag(item.image, class: "img-thumbnail") %></div>
       <div class="col-md-3" style="text-align:left">
-        <p>Title: <%= item.title %></p>
+        <p>Title: <%= link_to item.title, item_path(item) %></p>
         <p>Price: <span style="color:#a55538"><%= number_to_currency(item.price) %></span></p>
         <p>Description: <%= item.description %></p>
         <p>Quantity: <%= count %>
-        <%= link_to "-", cart_path(item_id: item.id, change_type: "decrease"), method: "patch", class: "btn btn-danger" %>
-        <%= link_to "+", cart_path(item_id: item.id, change_type: "increase"), method: "patch", class: "btn btn-success" %><br>
-        <%= link_to "Remove", cart_path(item_id: item.id), method: "delete" %>
+        <%= link_to "-", cart_path(item_id: item.id, change_type: "decrease"), method: "patch", class: "btn btn-warning" %>
+        <%= link_to "+", cart_path(item_id: item.id, change_type: "increase"), method: "patch", class: "btn btn-success" %>
+        <%= link_to "x", cart_path(item_id: item.id), method: "delete", class: "btn btn-danger" %>
+        <p>Subtotal: <%= calculate_subtotal(item.price, count) %></p>
       </div>
     </div>
     <div class="col-md-3"></div>
