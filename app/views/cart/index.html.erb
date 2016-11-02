@@ -8,7 +8,7 @@
       <div class="col-md-3"><%= image_tag(item.image, class: "img-thumbnail") %></div>
       <div class="col-md-3" style="text-align:left">
         <p>Title: <%= item.title %></p>
-        <p>Price: <span style="color:#a55538"><%= item.price %></span></p>
+        <p>Price: <span style="color:#a55538"><%= number_to_currency(item.price) %></span></p>
         <p>Description: <%= item.description %></p>
         <p>Quantity: <%= count %>
         <%= link_to "-", cart_path(item_id: item.id, change_type: "decrease"), method: "patch", class: "btn btn-danger" %>
