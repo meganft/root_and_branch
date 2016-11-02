@@ -62,7 +62,7 @@
    font-weight: lighter;
  }
 
- .cart_header {
+ .cart_header, .item_title {
    font-family: 'Raleway', sans-serif;
    color:#5b5a4f;
    font-weight: lighter;
