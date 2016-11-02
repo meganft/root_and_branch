@@ -38,5 +38,11 @@ RSpec.describe Item, type: :model do
       expect(item).to respond_to(:categories)
       expect(item).to respond_to(:item_categories)
     end
+
+    it "has many orders through order items" do
+      item = create(:item)
+      expect(item).to respond_to(:orders)
+      expect(item).to respond_to(:order_items)
+    end
   end
 end
