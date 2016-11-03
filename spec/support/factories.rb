@@ -15,17 +15,28 @@ FactoryGirl.define do
   
   end
 
+  sequence :name do |n|
+    "name#{n}"
+  end
+
   factory :category do
-    sequence :name do |n|
-      "name#{n}"
-    end
+    name
+
     sequence :slug do |n|
       "name#{n}"
     end
+    
     factory :item_on_category do
       items {create_list(:item, 2)}
     end
   end
 
+  factory :user do
+    name
+    sequence :email do |n|
+      "email#{n}"
+    end
+    password "password"
+  end
 
 end
