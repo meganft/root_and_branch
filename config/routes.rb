@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'users#show'
 
+
   get "/:slug", :to => "categories#show", as: :category
 
 end

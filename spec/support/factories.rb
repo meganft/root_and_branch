@@ -18,6 +18,9 @@ FactoryGirl.define do
     sequence :name do |n|
       "name#{n}"
     end
+    sequence :slug do |n|
+      "name#{n}"
+    end
     factory :item_on_category do
       items {create_list(:item, 2)}
     end
