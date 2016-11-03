@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :items, only: [:index, :show]
-  resources :categories, only: [:show], param: :slug
+  # resources :categories, only: [:show]
   #
-  # get '/grocery', to: 'categories#show'
 
   get '/cart', to: "cart#index"
   post '/cart', to: "cart#create"
@@ -23,7 +22,6 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'users#show'
 
-  get "/:slug", :to => "categories#show"
+  get "/:slug", :to => "categories#show", as: :category
 
-  # map.category_link '/:slug', :controller => 'categories', :action => 'show'
 end
