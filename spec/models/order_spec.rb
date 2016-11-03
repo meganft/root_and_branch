@@ -24,8 +24,9 @@ RSpec.describe Order, type: :model do
       user = User.create(name: "Bob", email: "cats@cats.cats", password: "cats")
       status = Status.create(name: "Completed")
       order = Order.create(user_id: user.id, status_id: status.id)
-      order.items.create(title: "cat sweater", description: "lovely", price: 9.99, image: "cat.jpg")
-      order.items.create(title: "dog sweater", description: "charming", price: 34.43, image: "dog.jpg")
+      order.items.create(title: "cat sweater", description: "lovely", price: 9.99, image: "cat.jpg", retired: false)
+      order.items.create(title: "dog sweater", description: "charming", price: 34.43, image: "dog.jpg", retired: false)
+
       expect(order.order_total).to eq(44.42)
     end
   end
