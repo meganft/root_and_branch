@@ -31,12 +31,20 @@
    text-align: center;
    width:100%;
  }
+
  .navbar-default .navbar-brand {
-     color:#e7e8ce;
-      font-family: 'Bungee Hairline', cursive;
-      font-size: 1.75em;
-      float: none;
+   color:#e7e8ce;
+    font-family: 'Bungee Hairline', cursive;
+    font-size: 1.75em;
+    float: none;
  }
+
+ .navbar-default .navbar-nav a:hover {
+   color:#a06103;
+   font-weight: bold;
+   text-shadow: 0 0 1px #a06103;
+ }
+
  a {
    color: #014c8c;
  }
@@ -75,12 +83,17 @@
   background-color: #768cab;
   border: white;
 }
+
 .btn-success:hover, .btn-success:focus {
   background-color: #014c8c ;
 }
 
 .btn-success:active{
   background-color: #183A69 !important;
+}
+
+.btn-success:hover {
+  background-color: #014c8c;
 }
 
 .btn-danger {
@@ -96,8 +109,35 @@
   background-color: #6c280f !important;
 }
 
-
 .btn-warning {
   background-color: #da9e3c;
   border: white;
+}
+
+.indexpage {
+  background-image: url("https://images.unsplash.com/photo-1444065933550-8dbbf6cd69cd?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=0518fa8fb16a73fc1fa521a69eef6141");
+  background-size: cover;
+}
+
+.indexpage h2 {
+
+}
+
+.indexpage .container {
+  padding: 150px;
+  font-family: 'Raleway', sans-serif;
+  color:#e7e8ce;
+  font-weight: lighter;
+}
+
+.indexpage a {
+  color:#a06103;
+  font-family: Helvetica;
+  font-weight: lighter;
+  font-size: 1.5em;
+}
+
+.indexpage p {
+  font-weight: lighter;
+  font-size: 1.2em;
 }
