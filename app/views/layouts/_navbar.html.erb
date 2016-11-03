@@ -12,7 +12,7 @@
       <a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
       <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
         <% Category.all.each do |category| %>
-          <%= link_to category.name, category_path(category), class: "dropdown-item" %>
+          <%#= link_to category.name, category_path(category), class: "dropdown-item" %>
         <% end %>
       </div>
     </li>
