@@ -14,6 +14,8 @@ describe "logged in visitor can checkout" do
     expect(page).to have_link("Checkout", href: orders_path)
     click_on "Checkout"
 
+    expect(page).to have_content "Order Status"
+    expect(page).to have_content "#{item.title}"
     expect(page).to have_content("Thank you for placing your order")
   end
 
@@ -33,9 +35,10 @@ describe "logged in visitor can checkout" do
     click_on "Add to cart"
 
     click_on "Checkout"
-    save_and_open_page
 
     expect(page).to have_content "Order Status"
+    expect(page).to have_content "#{item1.title}"
+    expect(page).to have_content "#{item2.title}"
     expect(page).to have_content("Thank you for placing your order")
   end
 end

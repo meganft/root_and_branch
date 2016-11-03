@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @status = Status.find_by(name: "ordered")
+    @status = Status.where(name: "ordered").first_or_create
     @order = Order.new(user: current_user, status: @status)
     if @order.save
       session[:cart].each do |id, quantity|
@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
       flash[:success] = "Thank you for placing your order"
       redirect_to order_path(@order)
     else
+      flash[:alert] = "Order did not submit"
       redirect_to cart_path
     end
   end
