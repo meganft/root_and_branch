@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :items, only: [:index, :show]
-  resources :categories, only: [:show]
+  # resources :categories, only: [:show]
+  #
 
   get '/cart', to: "cart#index"
   post '/cart', to: "cart#create"
@@ -17,7 +18,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
 
-  resources :orders, only: [:index, :show]
+  resources :orders, only: [:index, :show, :create]
 
   get '/dashboard', to: 'users#show'
+
+
+  get "/:slug", :to => "categories#show", as: :category
+
 end
