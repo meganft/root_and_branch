@@ -15,12 +15,12 @@
 
   </head>
 
+  <% flash.each do |type, message| %>
+  <%= content_tag :div, sanitize(message), class: "alert-#{type}" %>
+  <% end %>
 <%= render partial: "layouts/navbar" %>
 
   <body>
-    <% flash.each do |type, message| %>
-    <%= content_tag :div, sanitize(message) %>
-    <% end %>
     <%= yield %>
   </body>
 </html>
