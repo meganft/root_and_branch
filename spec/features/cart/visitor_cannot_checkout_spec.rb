@@ -28,6 +28,7 @@ describe "a visitor visits their cart" do
     fill_in "user[name]", with: "Bob"
     fill_in "user[email]", with: "cats@cats.com"
     fill_in "user[password]", with: "cats"
+    fill_in "user[password_confirmation]", with: "cats"
     click_button "Create Account"
 
     visit cart_path
