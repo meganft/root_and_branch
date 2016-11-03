@@ -75,8 +75,12 @@
   background-color: #768cab;
   border: white;
 }
-.btn-success:hover, .btn-success:active, .btn-success:focus {
-  background-color: #014c8c !important;
+.btn-success:hover, .btn-success:focus {
+  background-color: #014c8c ;
+}
+
+.btn-success:active{
+  background-color: #183A69 !important;
 }
 
 .btn-danger {
@@ -84,9 +88,14 @@
   border: white;
 }
 
-.btn-danger:hover, .btn-danger:active, .btn-danger:focus {
+.btn-danger:hover, .btn-danger:focus {
   background-color: #ad301d !important;
 }
+
+.btn-danger:active {
+  background-color: #6c280f !important;
+}
+
 
 .btn-warning {
   background-color: #da9e3c;
