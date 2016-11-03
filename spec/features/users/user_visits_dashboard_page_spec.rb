@@ -8,6 +8,7 @@ describe "a user visits a dashboard page" do
     fill_in "user[name]", with: "Bob"
     fill_in "user[email]", with: "cats@cats.com"
     fill_in "user[password]", with: "cats"
+    fill_in "user[password_confirmation]", with: "cats"
     click_button "Create Account"
 
     expect(page).to have_content("Logged in as #{User.last.name}")
