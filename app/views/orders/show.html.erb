@@ -1,10 +1,23 @@
-<h1>Order <%= @order.id %> placed <%= @order.created_at.to_date %></h2>
+<div class="container" style="background-color: #e7e8ce; padding: 20px;">
+  <h2 class="cart_header">Order <%= @order.id %></h2>
+  <h4 class="cart_header"> Placed <%= @order.created_at.to_date %></h4>
 
-<% @items.each do |item| %>
-  <%= link_to item.title, item_path(item) %>: 1
-  <%= item.price %>
-<% end %>
+  Order Status: <%= @status.name %> <%= @status.created_at %><br>
 
-Order Status: <%= @status.name %> <%= @status.created_at %>
-
-Total: <%= number_to_currency(@order.order_total) %>
+  <% @items.each do |item| %>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="item_<%= item.id %>">
+      <div class="col-md-3"><%= image_tag(item.image, class: "img-thumbnail") %></div>
+      <div class="col-md-6" style="text-align:left">
+        <p>Title: <%= link_to item.title, item_path(item) %></p>
+        <p>Price: <span style="color:#a55538"><%= number_to_currency(item.price) %></span></p>
+        <p>Quantity: 1</p>
+        <p>Description: <%= item.description %></p></div>
+      </div>
+    </div><hr>
+        <% end %>
+    <div class="row">
+        Total: <%= number_to_currency(@order.order_total) %>
+    </div>
+  </div>
