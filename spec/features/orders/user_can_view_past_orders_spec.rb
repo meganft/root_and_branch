@@ -13,10 +13,9 @@ describe "user visits orders index" do
 
     visit orders_path
 
-
     expect(page).to have_content(order1.id)
     expect(page).to have_content(order2.id)
-    expect(page).to_not have_content(order3.id)
+    expect(page).to_not have_content("Order #: #{order3.id}")
   end
 
   scenario "user sees details of past orders" do
