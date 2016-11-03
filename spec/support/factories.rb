@@ -12,6 +12,7 @@ FactoryGirl.define do
     sequence :image do |n|
       "img tag #{n}"
     end
+  
   end
 
   factory :category do
