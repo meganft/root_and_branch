@@ -12,13 +12,8 @@ class OrdersController < ApplicationController
   def create
     @status = Status.where(name: "ordered").first_or_create
     @order = Order.new(user: current_user, status: @status)
-    if @order.save
-      session[:cart].each do |id, quantity|
-        item = Item.find(id)
-        quantity.times do
-          @order.items << item
-        end
-      end
+    @order_completion = OrderCompletion.new(@order, session[:cart])
+    if @order_completion.create
       flash[:success] = "Thank you for placing your order"
       redirect_to order_path(@order)
     else
