@@ -90,7 +90,7 @@
 
 .btn-success:active{
   background-color: #183A69 !important;
-
+}
 
 .btn-success:hover {
   background-color: #014c8c;
@@ -109,7 +109,6 @@
   background-color: #6c280f !important;
 }
 
-
 .btn-warning {
   background-color: #da9e3c;
   border: white;
@@ -118,8 +117,8 @@
 .indexpage {
   background-image: url("https://images.unsplash.com/photo-1444065933550-8dbbf6cd69cd?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=0518fa8fb16a73fc1fa521a69eef6141");
   background-size: cover;
-
 }
+
 .indexpage h2 {
 
 }
