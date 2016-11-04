@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @items = @order.items.all
     @status = @order.status
+    @ordered_items = @items.group(:id).count
   end
 
   def create
