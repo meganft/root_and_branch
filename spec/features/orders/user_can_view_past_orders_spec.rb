@@ -49,4 +49,20 @@ describe "user visits orders index" do
     expect(page).to have_content(order.created_at)
     expect(page).to have_content(status.created_at)
   end
+
+  scenario "user sees each item once on page with multiple quantity" do
+    user = User.create(name: "Bob", email: "cats@cats.cats", password: "cats")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    status = Status.create(name: "Completed")
+    order = user.orders.create(status_id: status.id)
+    item = order.items.create(title: "cat sweater", description: "Beautiful cat sweater", price: 9.99, image: "sweater.jpg")
+    order.items << item
+
+    visit order_path(order)
+
+    within(".item_#{item.id}") do
+      expect(page).to have_content "Quantity: 2"
+    end
+  end
+
 end
