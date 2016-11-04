@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @items = @order.items.all
     @status = @order.status
+    @ordered_items = @items.group(:id).count
   end
 
   def create
@@ -15,6 +16,7 @@ class OrdersController < ApplicationController
     @order_completion = OrderCompletion.new(@order, session[:cart])
     if @order_completion.create
       flash[:success] = "Thank you for placing your order"
+      session.delete(:cart)
       redirect_to order_path(@order)
     else
       flash[:alert] = "Order did not submit"

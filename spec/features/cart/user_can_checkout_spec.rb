@@ -41,4 +41,22 @@ describe "logged in visitor can checkout" do
     expect(page).to have_content "#{item2.title}"
     expect(page).to have_content("Thank you for placing your order")
   end
+
+  scenario "cart is cleared once checked out" do
+    user = create(:user)
+    item1, item2 = create_list(:item, 2)
+    status = Status.create(name: "ordered")
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit item_path(item1)
+    click_on "Add to cart"
+
+    click_on "Checkout"
+
+    visit cart_path
+
+    expect(page).to_not have_content "#{item1.title}"
+    expect(page).to have_content "Total: $0.00"
+  end
 end
