@@ -32,4 +32,12 @@ RSpec.describe Category, type: :model do
       expect(category).to respond_to(:item_categories)
     end
   end
+
+  describe ".set_slug" do
+    it "creates a slug for the category" do
+      category = Category.create(name: "Cat Sweaters")
+
+      expect(category.set_slug).to eq("cat-sweaters")
+    end
+  end
 end
