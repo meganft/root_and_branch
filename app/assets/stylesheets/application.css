@@ -185,3 +185,27 @@ h4 a {
   align-items: center;
   border-radius: 50px;
 }
+
+.usershow {
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  padding-top: 35px;
+  background-color: #e7e8ce;
+  width: 70%;
+  border-radius: 50px;
+  padding-bottom: 35px;
+}
+
+.cart {
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  padding-top: 35px;
+  background-color: #e7e8ce;
+
+  border-radius: 50px;
+  padding-bottom: 35px;
+}
