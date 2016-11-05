@@ -9,6 +9,7 @@ class CartController < ApplicationController
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
+    flash[:success] = "Successfully added #{item.title} to your cart."
     redirect_to :back
   end
 
