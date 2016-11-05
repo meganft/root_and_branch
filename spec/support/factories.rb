@@ -37,10 +37,15 @@ FactoryGirl.define do
       "email#{n}"
     end
     password "password"
+    factory :admin do
+      role 1
+    end
   end
 
   factory :status do
     name
   end
+
+
 
 end
