@@ -58,12 +58,12 @@ describe "a visitor can create an account" do
   end
 
   scenario "a visitor cannot create an account without a unique email" do
-    User.create(name: "Steve", email: "cats@cats.com", password: "dogs")
+    user = create(:user)
 
     visit new_user_path
 
     fill_in "user[name]", with: "Bob"
-    fill_in "user[email]", with: "cats@cats.com"
+    fill_in "user[email]", with: user.email
     fill_in "user[password]", with: "cats"
     fill_in "user[password_confirmation]", with: "cats"
     click_button "Create Account"

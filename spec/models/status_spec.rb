@@ -18,7 +18,7 @@ RSpec.describe Status, type: :model do
 
   describe "relationships" do
     it "has many orders" do
-      status = Status.create(name: "Completed")
+      status = create(:status)
       expect(status).to respond_to(:orders)
     end
   end

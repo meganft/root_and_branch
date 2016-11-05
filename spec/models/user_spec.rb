@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
 
     context "valid attributes" do
       it "is valid with all attributes" do
-        user = User.new(name: "Bob", email: "cats@cats.com", password: "cats")
+        user = create(:user)
         expect(user).to be_valid
       end
     end
@@ -36,7 +36,7 @@ RSpec.describe User, type: :model do
   end
   describe "relationships" do
     it "has many orders" do
-      user = User.create(name: "Bob", email: "cats@cats.com", password: "cats")
+      user = create(:user)
       expect(user).to respond_to(:orders)
     end
   end

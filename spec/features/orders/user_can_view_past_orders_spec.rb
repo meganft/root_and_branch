@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe "user visits orders index" do
   scenario "user views past orders" do
-    user = User.create(name: "Bob", email: "cats@cats.cats", password: "cats")
-    user1 = User.create(name: "Megan", email: "megan@megan.megan", password: "megan")
+    user = create(:user)
+    user1 = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    status = Status.create(name: "Completed")
+    status = create(:status)
 
     order1 = user.orders.create(status_id: status.id)
     order2 = user.orders.create(status_id: status.id)
@@ -19,9 +19,9 @@ describe "user visits orders index" do
   end
 
   scenario "user sees details of past orders" do
-    user = User.create(name: "Bob", email: "cats@cats.cats", password: "cats")
+    user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    status = Status.create(name: "Completed")
+    status = create(:status)
     order = user.orders.create(status_id: status.id)
 
     visit orders_path
@@ -30,7 +30,7 @@ describe "user visits orders index" do
   end
 
   scenario "user clicks on past order" do
-    user = User.create(name: "Bob", email: "cats@cats.cats", password: "cats")
+    user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     status = Status.create(name: "Completed")
     order = user.orders.create(status_id: status.id)

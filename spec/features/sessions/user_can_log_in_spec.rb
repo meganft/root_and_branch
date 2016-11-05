@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "a user can log in" do
   scenario "a user visits login page and logs in" do
-    user = User.create(name: "Bob", email: "cats@cats.cats", password: "cats")
+    user = create(:user)
     visit login_path
 
     fill_in "email", with: "#{user.email}"
@@ -22,7 +22,7 @@ describe "a user can log in" do
 
   describe "a user cannot log in" do
     scenario "a user enters an incorrect password" do
-      user = User.create(name: "Bob", email: "cats@cats.cats", password: "cats")
+      user = create(:user)
       visit login_path
 
       fill_in "email", with: "#{user.email}"
@@ -39,7 +39,7 @@ describe "a user can log in" do
     end
 
     scenario "a user cannot log in with incomplete information" do
-      user = User.create(name: "Bob", email: "cats@cats.cats", password: "cats")
+      user = create(:user)
       visit login_path
 
       fill_in "email", with: ""
