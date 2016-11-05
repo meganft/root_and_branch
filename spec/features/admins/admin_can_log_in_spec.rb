@@ -15,9 +15,15 @@ describe "admin can log in" do
 
   scenario "default user cannot see admin dashboard" do
     user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit admin_dashboard_path
 
-    expect(page).to have_content "The page you were looking for doesn't exist"
+    expect(page).to have_content "The page you were looking for doesn't exist."
+  end
+
+  scenario "visitor cannot see admin dashboard" do
+    visit admin_dashboard_path
+    expect(page).to have_content "The page you were looking for doesn't exist."
   end
 end
