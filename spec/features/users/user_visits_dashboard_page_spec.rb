@@ -12,7 +12,6 @@ describe "a user visits a dashboard page" do
     click_button "Create Account"
 
     expect(page).to have_content("Logged in as #{User.last.name}")
-    expect(page).to have_content("#{User.last.email}")
     within(:css, ".float-xs-right") do
       expect(page).to have_content("Logout #{User.last.name}")
       expect(page).to_not have_content("Login")

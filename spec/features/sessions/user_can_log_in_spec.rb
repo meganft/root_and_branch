@@ -12,7 +12,6 @@ describe "a user can log in" do
 
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Successfully logged in as #{user.name}")
-    expect(page).to have_content("#{user.email}")
 
     within(:css, ".float-xs-right") do
       expect(page).to have_content("Logout #{user.name}")
