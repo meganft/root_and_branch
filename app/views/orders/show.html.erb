@@ -1,27 +1,31 @@
-<div class="container" style="background-color: #e7e8ce; padding: 20px;">
-  <h2 class="cart_header">Order <%= @order.id %></h2>
-  <h4 class="cart_header"> Placed <%= @order.created_at.to_date %></h4>
-
-  Order Status: <%= @status.name %> <%= @status.created_at %><br>
-
-  <% @ordered_items.each do |id, count| %>
-  <div class="row">
-    <div class="col-md-3"></div>
-    <% item = find_item(id) %>
+<div class="container">
+  <div class="displaypage">
+    <h2 class="cart_header">Order <%= @order.id %></h2>
+    <h4 class="cart_header"> Placed <%= @order.created_at.to_date %></h4>
+    <hr>
+    <% @ordered_items.each do |id, count| %>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <% item = find_item(id) %>
       <div class="item_<%= item.id %>">
         <div class="col-md-3">
           <%= image_tag(item.image, class: "img-thumbnail") %></div>
-        <div class="col-md-6" style="text-align: left">
+          <div class="col-md-6" style="text-align: left">
             <p>Title: <%= link_to item.title, item_path(item) %></p>
             <p>Price: <span style="color: #a55538"> <%= number_to_currency(item.price) %> </span></p>
             <p>Description: <%= item.description %></p>
             <p>Quantity: <%= count %> </p>
             <p>Subtotal: <%= calculate_subtotal(item.price, count) %></p>
+          </div>
         </div>
+      </div>
+      <% end %>
+      <div class="row">
+        <span style="color: #a55538"> Total: <%= number_to_currency(@order.order_total) %></span>
+      </div>
+      <br>
+      Order Status: <strong><%= @status.name.capitalize %></strong> <%= @status.created_at %><br>
+      <hr>
+      <h4><%= link_to "Back to your order history", orders_path %></h4>
     </div>
-  </div><hr>
-        <% end %>
-    <div class="row">
-        Total: <%= number_to_currency(@order.order_total) %>
-    </div>
-</div>
+  </div>

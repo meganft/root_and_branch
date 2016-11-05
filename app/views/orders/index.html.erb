@@ -1,3 +1,9 @@
-<% @orders.each do |order| %>
-  <%= link_to "Order ##{order.id} placed #{order.created_at.to_date}", order_path(order) %>
-<% end %>
+<div class="container">
+  <div class ="displaypage">
+    <h2> <%= current_user.name.capitalize %>'s Order History </h2><hr>
+    <% @orders.each do |order| %>
+    <%= link_to "Order ##{order.id} placed #{order.created_at.to_date}", order_path(order) %><br>
+    <% end %><hr>
+    <h4><%= link_to "Back to your account page", user_path(current_user) %></h4>
+  </div>
+</div>
