@@ -9,14 +9,14 @@ class CartController < ApplicationController
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
-    redirect_to cart_path
+    redirect_to :back
   end
 
   def update
     item = Item.find(params[:item_id])
     @cart.decrease_item(item.id) if params[:change_type] == "decrease"
     @cart.add_item(item.id)      if params[:change_type] == "increase"
-    # would need an else to catch any errors?? 
+    # would need an else to catch any errors??
     session[:cart] = @cart.contents
     redirect_to cart_path
   end
