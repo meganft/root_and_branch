@@ -10,7 +10,7 @@ describe "a user can log in" do
 
     click_button "Login"
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Successfully logged in as #{user.name}")
 
     within(:css, ".float-xs-right") do
