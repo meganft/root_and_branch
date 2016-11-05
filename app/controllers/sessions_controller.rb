@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       else
       flash[:success] = "Successfully logged in as #{@user.name}!"
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to dashboard_path
       end
     else
       flash.now[:error] = "Login failed, please try again."

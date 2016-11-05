@@ -17,6 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    if params[:id] && params[:id] != current_user.id
+      render file: '/public/404'
+    end
   end
 
   private

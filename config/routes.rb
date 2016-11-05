@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show, :create]
 
   get '/dashboard', to: 'users#show'
+  post '/dashboard', to: 'users#show'
 
   get '/:slug', :to => 'categories#show', as: :category
 
