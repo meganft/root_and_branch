@@ -16,9 +16,14 @@ describe "an unauthenticated user can only see permitted information" do
   end
 
   scenario "an unauthenticated user cannot view admin page" do
-
     visit admin_dashboard_path
 
     expect(page).to have_content("The page you were looking for doesn't exist.")
+  end
+
+  scenario "an unauthenticated user cannot checkout" do
+    visit cart_path
+
+    expect(page).to have_content("Login or Create Account to Checkout")
   end
 end
