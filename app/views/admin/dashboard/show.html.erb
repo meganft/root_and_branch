@@ -1,1 +1,5 @@
 <h2> Admin Dashboard </h2>
+
+<% @orders.each do |order| %>
+  Order <%= order.id %> <%= order.created_at %>
+<% end %>
