@@ -1,5 +1,22 @@
-<h2> Admin Dashboard </h2>
+<div class="container">
+  <div class="displaypage">
+    <h2> Admin Dashboard </h2>
 
-<% @orders.each do |order| %>
-  Order <%= order.id %> <%= order.created_at %>
-<% end %>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Order Statuses</h4>
+        <div class="order-statuses">
+        <% @statuses.each do |status, count| %>
+          <li><%= status.name %> <span class="tag tag-pill tag-default"> <%= count %></span> </li>
+        <% end %>
+      </div>
+      </div>
+      <div class="col-md-6">
+        <h4>All Orders</h4>
+        <% @orders.each do |order| %>
+          <li><%= link_to "Order #{order.id} placed #{order.created_at.to_date}", order_path(order) %></li>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
