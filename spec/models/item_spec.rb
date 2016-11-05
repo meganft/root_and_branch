@@ -26,7 +26,7 @@ RSpec.describe Item, type: :model do
 
     context "valid attributes" do
       it "is valid with all attributes" do
-        item = Item.new(title: "cat", description: "fuzzy", price: 5.75, image: "cat.jpg", retired: false)
+        item = create(:item)
         expect(item).to be_valid
       end
     end

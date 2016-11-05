@@ -12,7 +12,7 @@ FactoryGirl.define do
     sequence :image do |n|
       "img tag #{n}"
     end
-  
+
   end
 
   sequence :name do |n|
@@ -25,7 +25,7 @@ FactoryGirl.define do
     sequence :slug do |n|
       "name#{n}"
     end
-    
+
     factory :item_on_category do
       items {create_list(:item, 2)}
     end
@@ -37,6 +37,10 @@ FactoryGirl.define do
       "email#{n}"
     end
     password "password"
+  end
+
+  factory :status do
+    name
   end
 
 end

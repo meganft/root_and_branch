@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe "Logged in user can log out" do
   before :each do
-    @user = User.create(name: "Bob", email: "cats@cats.cats", password: "cats")
+    @user = create(:user)
 
     visit '/'
     click_on "Login"
