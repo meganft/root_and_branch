@@ -12,6 +12,7 @@ describe "admin sees list of orders on dashboard" do
     order2.items << item
 
     visit admin_dashboard_path
+    
 
     expect(page).to have_content "Order #{order1.id}"
     expect(page).to have_content "Order #{order2.id}"
