@@ -25,6 +25,7 @@ describe "Logged in user can log out" do
 
     visit item_path(item)
     click_on "Add to cart"
+    visit cart_path
 
     expect(page).to have_content "Subtotal: $#{item.price}0"
     click_on "Logout #{@user.name}"

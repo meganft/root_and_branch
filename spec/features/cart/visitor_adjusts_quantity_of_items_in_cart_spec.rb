@@ -24,6 +24,8 @@ describe "visitor adjusts quantity of item in cart" do
       click_on "Add to cart"
     end
 
+    visit cart_path
+
     within(".item_#{@item1.id}") do
       expect(page).to have_content("Quantity: 2")
     end
