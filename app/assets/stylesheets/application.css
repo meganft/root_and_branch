@@ -198,14 +198,13 @@ h4 a {
   padding-bottom: 35px;
 }
 
-.cart {
+.displaypage  {
   margin-top: 3em;
   margin-left: auto;
   margin-right: auto;
   float: none;
   padding-top: 35px;
   background-color: #e7e8ce;
-
   border-radius: 50px;
   padding-bottom: 35px;
 }
