@@ -1,17 +1,27 @@
-<h2>Create a New Account</h2>
 
-<%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="container">
+    <div class="form-holder">
+    <h2>Create a New Account</h2>
+    <hr>
+    <%= form_for @user, class: "form-group" do |f| %>
+      <div class="form-inline">
+        <p class="indent"> <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %></p>
+      </div>
+      <div class="form-inline">
+        <p class="indent"> <%= f.label :email %>
+        <%= f.text_field :email, class: "form-control" %></p>
+      </div>
+      <div class="form-inline">
+         <p><%= f.label :password %>
+         <%= f.password_field :password, class: "form-control" %>
+       </div>
+         <div class="form-inline">
+         &ensp;&nbsp;<%= f.label :confirm %>
+        <%= f.password_field :password_confirmation, class: "form-control"%></p>
+      </div></p>
+      <p><button type="submit" class="btn btn-warning">Create Account</button></p>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label "Confirm Password" %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit "Create Account" %>
-  <% end %>
+    <% end %><br>
+</div>
+  </div>

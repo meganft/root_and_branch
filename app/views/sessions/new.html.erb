@@ -1,14 +1,19 @@
-<h2>Login<h2>
+<div class="container">
+  <div class="form-holder">
+    <h2>Login</h2>
+  <hr>
 
-  <%= form_tag login_path, method: :post do %>
+  <%= form_tag login_path, method: :post, class: "form-group" do %>
+    <div class="form-inline">
+      <p class="indent"> <%= label_tag :email %> <%= text_field_tag :email, params[:email], class: "form-control" %></p>
+    </div>
+    <div class="form-inline">
+      <%= label_tag :password %> <%= password_field_tag :password, nil, class: "form-control" %>
+    </div></p>
+    <button type="submit" class="btn btn-warning">Login</button></p>
 
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-
-    <%= submit_tag "Login" %>
   <% end %><br>
-
-  <%= link_to "Create Account", new_user_path %>
+  <h4><%= link_to "Create Account", new_user_path %></h4>
+  <br>
+</div>
+</div>
