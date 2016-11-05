@@ -1,4 +1,5 @@
-<h2>User Show Page</h2>
 
-<%= @user.name %>
-<%= @user.email %>
+<div class="usershow">
+  <h2>Welcome <%= current_user.name.capitalize %>!</h2>
+  <%= link_to "See your past orders", orders_path %>
+</div>
