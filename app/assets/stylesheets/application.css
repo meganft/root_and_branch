@@ -142,13 +142,24 @@
   font-size: 1.2em;
 }
 
-.form-group {
+
+.form-holder {
+  margin-top: 3em;
   margin-left: auto;
   margin-right: auto;
   float: none;
-  width: 50%;
+  padding-top: 35px;
+  background-color: #e7e8ce;
+  width: 70%;
+  border-radius: 50px;
+}
+
+.form-inline {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  width: 70%;
   font-family: 'Raleway', sans-serif;
-  color: #e7e8ce
 }
 
 h2 {
@@ -159,4 +170,8 @@ h2 {
 h4 a {
   font-weight: lighter;
   font-family: 'Raleway', sans-serif;
+}
+
+.indent {
+  padding-left: 2em;
 }
