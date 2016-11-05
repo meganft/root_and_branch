@@ -1,5 +1,7 @@
+<div class="container">
 <h2> Admin Dashboard </h2>
 
 <% @orders.each do |order| %>
-  Order <%= order.id %> <%= order.created_at %>
+  <li><%= link_to "Order #{order.id} placed #{order.created_at.to_date}", order_path(order) %></li>
 <% end %>
+</div>
