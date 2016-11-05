@@ -1,6 +1,6 @@
 class CartController < ApplicationController
 
-  def index
+  def show
     @items = @cart.contents
     @total_price = @cart.total_price
   end
@@ -9,14 +9,15 @@ class CartController < ApplicationController
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
-    redirect_to cart_path
+    flash[:success] = "Successfully added #{item.title} to your cart."
+    redirect_back(fallback_location: cart_path)
   end
 
   def update
     item = Item.find(params[:item_id])
     @cart.decrease_item(item.id) if params[:change_type] == "decrease"
     @cart.add_item(item.id)      if params[:change_type] == "increase"
-    # would need an else to catch any errors?? 
+    # would need an else to catch any errors??
     session[:cart] = @cart.contents
     redirect_to cart_path
   end
