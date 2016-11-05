@@ -7,4 +7,8 @@ class Order < ApplicationRecord
   def order_total
     items.sum(:price)
   end
+
+  def self.count_by_status
+    group(:status).count
+  end
 end

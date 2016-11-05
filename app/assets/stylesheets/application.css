@@ -73,7 +73,7 @@
    font-weight: lighter;
  }
 
- .cart_header, .item_title {
+ .cart_header, .item_title, h4 {
    font-family: 'Raleway', sans-serif;
    color:#5b5a4f;
    font-weight: lighter;
@@ -207,4 +207,9 @@ h4 a {
   background-color: #e7e8ce;
   border-radius: 50px;
   padding-bottom: 35px;
+}
+
+.order-statuses {
+  /*text-align: left;*/
+  list-style-type: none;
 }
