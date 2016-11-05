@@ -4,8 +4,8 @@ module SessionHelper
     if user.admin?
       admin_dashboard_path
     else
-      user_path(user)
-    end 
+      dashboard_path
+    end
   end
 
 end
