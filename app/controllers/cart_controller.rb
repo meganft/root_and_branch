@@ -1,6 +1,6 @@
 class CartController < ApplicationController
 
-  def index
+  def show
     @items = @cart.contents
     @total_price = @cart.total_price
   end
