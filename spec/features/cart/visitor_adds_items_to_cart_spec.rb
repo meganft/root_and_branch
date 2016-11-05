@@ -42,6 +42,8 @@ describe "visitor adds items to cart" do
     within(".item_#{item2.id}") do
       click_on "Add to cart"
     end
+    visit cart_path
+
     total_price = item1.price + item2.price
 
     expect(page).to have_content item1.title
@@ -61,6 +63,8 @@ describe "visitor adds items to cart" do
     within(".item_#{item1.id}") do
       click_on "Add to cart"
     end
+    visit cart_path
+
     total_price = item1.price + item1.price
 
     expect(page).to have_content item1.title
@@ -76,6 +80,7 @@ describe "visitor adds items to cart" do
     within(".item_#{item1.id}") do
       click_on "Add to cart"
     end
+    visit cart_path
 
     within(".item_#{item1.id}") do
       expect(page).to have_link("#{item1.title}", href: item_path(item1))

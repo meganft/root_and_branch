@@ -10,6 +10,7 @@ describe "logged in visitor can checkout" do
 
     visit item_path(item)
     click_on "Add to cart"
+    visit cart_path
 
     expect(page).to have_link("Checkout", href: orders_path)
     click_on "Checkout"
@@ -28,11 +29,13 @@ describe "logged in visitor can checkout" do
 
     visit item_path(item1)
     click_on "Add to cart"
+    visit cart_path
 
     click_on "+"
 
     visit item_path(item2)
     click_on "Add to cart"
+    visit cart_path
 
     click_on "Checkout"
 
@@ -51,6 +54,7 @@ describe "logged in visitor can checkout" do
 
     visit item_path(item1)
     click_on "Add to cart"
+    visit cart_path
 
     click_on "Checkout"
 

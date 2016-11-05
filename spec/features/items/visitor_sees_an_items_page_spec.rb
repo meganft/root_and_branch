@@ -16,8 +16,8 @@ describe "they visit an item page" do
   scenario "they can add item to the cart" do
     click_on "Add to cart"
 
-    expect(current_path).to eq cart_path
-    expect(page).to have_css ".item_#{@item.id}"
+    expect(current_path).to eq item_path(@item)
+    expect(page).to have_content "Successfully added #{@item.title} to your cart."
   end
 
 end
