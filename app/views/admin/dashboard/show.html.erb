@@ -7,7 +7,7 @@
         <h4>Order Statuses</h4>
         <div class="order-statuses">
         <% @statuses.each do |status, count| %>
-          <li><%= status.name %> <span class="tag tag-pill tag-default"> <%= count %></span> </li>
+          <li><%=link_to status.name, admin_dashboard_path(status: status.name) %> <span class="tag tag-pill tag-default"> <%= count %></span> </li>
         <% end %>
       </div>
       </div>
