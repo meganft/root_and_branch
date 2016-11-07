@@ -16,6 +16,9 @@ class Admin::DashboardController < Admin::BaseController
     elsif params[:status] == "Completed"
       status = Status.find_by(name: "Completed")
       @orders = status.orders
+    else
+      @orders = Order.all
+      flash[:alert] = "Filter does not exist"
     end
   end
 
