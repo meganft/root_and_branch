@@ -3,7 +3,7 @@
     <h2> Admin Dashboard </h2>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-5">
         <h4>Order Statuses</h4>
         <div class="order-statuses">
           <% @statuses.each do |status| %>
@@ -12,11 +12,26 @@
           <%= link_to "All Orders", admin_dashboard_path %>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-5">
         <h4>Orders</h4>
-        <% @orders.each do |order| %>
-        <li><%= link_to "Order #{order.id} placed #{order.created_at.to_date}", order_path(order) %></li>
-        <% end %>
+        <div class="order-list">
+          <% @orders.each do |order| %>
+          <li><%= link_to "Order #{order.id} placed #{order.created_at.to_date}", order_path(order) %>
+            <% if order.status.name == "Paid" || order.status.name == "Ordered" %>
+              <%= link_to "Cancel", admin_dashboard_path(order_id: order.id, change_status: "Cancel"), method: "patch", class:"btn btn-danger btn-sm" %>
+            <% end %>
+            <% if order.status.name == "Ordered" %>
+              <%= link_to "Paid", admin_dashboard_path(order_id: order.id, change_status: "Paid"), method: "patch", class:"btn btn-warning btn-sm " %>
+            <% end %>
+            <% if order.status.name == "Paid" %>
+              <%= link_to "Completed", admin_dashboard_path(order_id: order.id, change_status: "Completed"), method: "patch", class:"btn btn-success btn-sm" %>
+            <% end %>
+            </li>
+          <% end  %>
+        </div>
       </div>
     </div>
     <%= link_to "Edit My Account", edit_admin_user_path(current_user) %>

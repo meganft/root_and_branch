@@ -1,25 +1,28 @@
 class Admin::DashboardController < Admin::BaseController
+  include DashboardHelper
 
   def show
     @statuses = Status.left_outer_joins(:orders).select('statuses.*, COUNT(orders.*)').group('statuses.id')
-    if params[:status].nil?
-      @orders = Order.all
-    elsif params[:status] == "Ordered"
-      status = Status.find_by(name: "Ordered")
-      @orders = status.orders
-    elsif params[:status] == "Paid"
-      status = Status.find_by(name: "Paid")
-      @orders = status.orders
-    elsif params[:status] == "Cancelled"
-      status = Status.find_by(name: "Cancelled")
-      @orders = status.orders
-    elsif params[:status] == "Completed"
-      status = Status.find_by(name: "Completed")
-      @orders = status.orders
-    else
-      @orders = Order.all
-      flash[:alert] = "Filter does not exist"
-    end
+    filter_orders(params)
   end
+
+  def update
+    @order = Order.find(params[:order_id])
+    if params[:change_status] == "Cancel"
+      status = Status.find_by(name: "Cancelled")
+    elsif params[:change_status] == "Paid"
+      status = Status.find_by(name: "Paid")
+    elsif params[:change_status] == "Completed"
+      status = Status.find_by(name: "Completed")
+    end
+    if @order.update(status_id: status.id)
+      flash[:success] = "Your order has been updated to be #{status.name}"
+    else
+      flash[:danger] = "Your order did not update."
+    end
+    redirect_to admin_dashboard_path
+  end
+
+
 
 end

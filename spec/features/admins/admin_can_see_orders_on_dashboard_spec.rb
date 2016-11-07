@@ -24,11 +24,13 @@ describe "admin sees list of orders on dashboard" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     item = create(:item)
+
+
     status1 = Status.create(name: "Ordered")
     status2 = Status.create(name: "Completed")
-    order1 = Order.create(status_id: status1.id, user_id: 2)
+    order1 = Order.create(status_id: status1.id, user_id: admin.id)
     order1.items << item
-    order2 = Order.create(status_id: status1.id, user_id: 2)
+    order2 = Order.create(status_id: status1.id, user_id: admin.id)
     order2.items << item
 
     visit admin_dashboard_path
@@ -45,7 +47,6 @@ describe "admin sees list of orders on dashboard" do
     item = create(:item)
     status1 = Status.create(name: "Completed")
     status2 = Status.create(name: "Ordered")
-    # binding.pry
     order3 = Order.create(status_id: status1.id, user_id: admin.id)
     order4 = Order.create(status_id: status2.id, user_id: admin.id)
     order3.items << item
@@ -55,6 +56,16 @@ describe "admin sees list of orders on dashboard" do
 
     expect(page).to have_content "Order #{order3.id}"
     expect(page).to_not have_content "Order #{order4.id}"
+  end
+
+  scenario "admin sees flash message for unknown filter" do
+    admin = create(:admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit '/admin/dashboard?status=thing'
+
+    expect(page).to have_content "Filter does not exist"
+    expect(current_path).to eq admin_dashboard_path
   end
 
   scenario "admin can see other users' order show pages" do
