@@ -222,3 +222,8 @@ h4 a {
   /*text-align: left;*/
   list-style-type: none;
 }
+
+.order-list {
+  text-align: left;
+  list-style-type: none;
+}
