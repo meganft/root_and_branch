@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'dashboard#show'
     patch '/dashboard', to: 'dashboard#update'
     resources :users, only: [:edit, :update]
+    resources :items, only: [:index, :edit, :update, :show]
   end
 
 
