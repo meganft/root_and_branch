@@ -15,7 +15,8 @@
       <div class="col-md-6">
         <h4>Orders</h4>
         <% @orders.each do |order| %>
-        <li><%= link_to "Order #{order.id} placed #{order.created_at.to_date}", order_path(order) %></li>
+        <li><%= link_to "Order #{order.id} placed #{order.created_at.to_date}", order_path(order) %></li>          
+        </li>
         <% end %>
       </div>
     </div>

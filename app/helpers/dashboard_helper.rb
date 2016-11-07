@@ -1,6 +1,6 @@
 module DashboardHelper
 
-  def filer_orders(params)
+  def filter_orders(params)
     if params[:status].nil?
       @orders = Order.all
     elsif params[:status] == "Ordered"
