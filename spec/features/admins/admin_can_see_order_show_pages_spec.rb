@@ -4,7 +4,8 @@ describe "admin sees user show page" do
   scenario "admin can see other users' order show pages" do
     user = create(:user)
     status = Status.create(name: "Completed")
-    order = user.orders.create(status_id: status.id)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
+    order = user.orders.create(status_id: status.id, address_id: address.id)
     item = create(:item)
     order.items << item
 
@@ -23,7 +24,8 @@ describe "admin sees user show page" do
   scenario "admin views an order show page" do
     user = create(:user)
     status = Status.create(name: "Completed")
-    order = user.orders.create(status_id: status.id)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
+    order = user.orders.create(status_id: status.id, address_id: address.id)
     item = create(:item)
     item2 = create(:item)
     order.items << item

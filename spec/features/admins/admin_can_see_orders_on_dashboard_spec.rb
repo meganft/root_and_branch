@@ -6,9 +6,10 @@ describe "admin sees list of orders on dashboard" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     item = create(:item)
     status = Status.create(name: "Ordered")
-    order1 = Order.create(status_id: status.id, user_id: 1)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: admin.id)
+    order1 = Order.create(status_id: status.id, user_id: 1, address_id: address.id)
     order1.items << item
-    order2 = Order.create(status_id: status.id, user_id: 1)
+    order2 = Order.create(status_id: status.id, user_id: 1, address_id: address.id)
     order2.items << item
 
     visit admin_dashboard_path
@@ -25,9 +26,10 @@ describe "admin sees list of orders on dashboard" do
 
     item = create(:item)
     status = Status.create(name: "Ordered")
-    order1 = Order.create(status_id: status.id, user_id: admin.id)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: admin.id)
+    order1 = Order.create(status_id: status.id, user_id: admin.id, address_id: address.id)
     order1.items << item
-    order2 = Order.create(status_id: status.id, user_id: admin.id)
+    order2 = Order.create(status_id: status.id, user_id: admin.id, address_id: address.id)
     order2.items << item
 
     visit admin_dashboard_path

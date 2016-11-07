@@ -2,4 +2,10 @@
 <div class="usershow">
   <h2>Welcome <%= current_user.name.capitalize %>!</h2>
   <%= link_to "See your past orders", orders_path %>
+  <h3>Addresses:</h3>
+  <% @addresses.each do |address| %>
+  <%= address.street %><br>
+  <%= address.city %>, <%= address.state %><br>
+  <%= address.zip %>
+  <% end %>
 </div>
