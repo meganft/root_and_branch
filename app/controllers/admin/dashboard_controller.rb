@@ -18,7 +18,7 @@ class Admin::DashboardController < Admin::BaseController
       @orders = status.orders
     else
       @orders = Order.all
-      flash[:alert] = "Filter does not exist"
+      flash[:warning] = "Filter does not exist"
     end
   end
 
