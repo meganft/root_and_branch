@@ -19,7 +19,7 @@
         <h4>Orders</h4>
         <div class="order-list">
           <% @orders.each do |order| %>
-          <li><%= link_to "Order #{order.id} placed #{order.created_at.to_date}", order_path(order) %>
+          <li class="order_<%="#{order.id}"%>"><%= link_to "Order #{order.id} placed #{order.created_at.to_date}", order_path(order) %>
             <% if order.status.name == "Paid" || order.status.name == "Ordered" %>
               <%= link_to "Cancel", admin_dashboard_path(order_id: order.id, change_status: "Cancel"), method: "patch", class:"btn btn-danger btn-sm" %>
             <% end %>

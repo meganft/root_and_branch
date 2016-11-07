@@ -23,6 +23,4 @@ class Admin::DashboardController < Admin::BaseController
     redirect_to admin_dashboard_path
   end
 
-
-
 end
