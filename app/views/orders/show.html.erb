@@ -1,7 +1,7 @@
 <div class="container">
   <div class="displaypage">
     <h2 class="cart_header">Order <%= @order.id %></h2>
-    <h4 class="cart_header"> Placed <%= @order.created_at.to_date %></h4>
+    <h4 class="cart_header"> Placed <%= @order.created_at.to_date %> by <%= @user.name.capitalize %></h4>
     <hr>
     <% @ordered_items.each do |id, count| %>
     <div class="row">
