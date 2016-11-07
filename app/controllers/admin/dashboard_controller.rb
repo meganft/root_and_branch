@@ -1,7 +1,8 @@
 class Admin::DashboardController < Admin::BaseController
 
   def show
-    @statuses = Order.count_by_status
+    # @statuses = Order.count_by_status
+    @statuses = Status.left_outer_joins(:orders).select('statuses.*, COUNT(orders.*)').group('statuses.id')
     if params[:status].nil?
       @orders = Order.all
     elsif params[:status] == "Ordered"
