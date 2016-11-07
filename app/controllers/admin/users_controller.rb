@@ -9,6 +9,7 @@ class Admin::UsersController < Admin::BaseController
     if @user.update(admin_params)
       flash[:success] = "Successfully updated your account"
       redirect_to admin_dashboard_path
+
     else
       flash.now[:error] = "Please try again"
       render :edit
@@ -18,6 +19,6 @@ class Admin::UsersController < Admin::BaseController
 private
 
   def admin_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email)
   end
 end

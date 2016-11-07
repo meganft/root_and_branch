@@ -8,11 +8,12 @@ describe "admin can modify own account data but not other users" do
     visit admin_dashboard_path
 
     click_on "Edit My Account"
-    fill_in "user[email]", with: "newemail@email.com"
-    fill_in "user[password]", with: admin.password
-    fill_in "user[password_confirmation]", with: admin.password
-    click_on "Update Account"
 
+    fill_in "user[email]", with: "newemail@email.com"
+
+    click_on "Update Account"
+    admin.reload
+    
     expect(page).to have_content("Successfully updated your account")
     expect(admin.email).to eq("newemail@email.com")
   end
