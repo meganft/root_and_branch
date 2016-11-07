@@ -8,4 +8,11 @@ class User < ApplicationRecord
   has_many :orders
 
   enum role: [:default, :admin]
+
+
+  def has_order(id)
+    if orders.find(id)
+      true
+    end
+  end
 end

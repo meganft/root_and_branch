@@ -4,6 +4,12 @@
     <% @orders.each do |order| %>
     <%= link_to "Order ##{order.id} placed #{order.created_at.to_date}", order_path(order) %><br>
     <% end %><hr>
-    <h4><%= link_to "Back to your account page", user_path(current_user) %></h4>
+    <h4>
+    <% if current_admin? %>
+      <%= link_to "Back to your account page", admin_dashboard_path %>
+    <% else %>
+      <%= link_to "Back to your account page", dashboard_path %>
+    <% end %>
+  </h4>
   </div>
 </div>
