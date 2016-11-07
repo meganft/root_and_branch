@@ -9,10 +9,11 @@
           <% @statuses.each do |status| %>
           <li><%=link_to status.name, admin_dashboard_path(status: status.name) %> <span class="tag tag-pill tag-default"> <%= status.orders.count %></span> </li>
           <% end %>
+          <%= link_to "All Orders", admin_dashboard_path %>
         </div>
       </div>
       <div class="col-md-6">
-        <h4>All Orders</h4>
+        <h4>Orders</h4>
         <% @orders.each do |order| %>
         <li><%= link_to "Order #{order.id} placed #{order.created_at.to_date}", order_path(order) %></li>
         <% end %>
