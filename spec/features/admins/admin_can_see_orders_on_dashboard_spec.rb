@@ -57,4 +57,23 @@ describe "admin sees list of orders on dashboard" do
     expect(page).to_not have_content "Order #{order4.id}"
   end
 
+  scenario "admin can see other users' order show pages" do
+    user = create(:user)
+    status = Status.create(name: "Completed")
+    order = user.orders.create(status_id: status.id)
+    item = create(:item)
+    order.items << item
+
+    admin = create(:admin)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit order_path(order)
+
+    expect(page).to have_content(user.name.capitalize)
+    expect(page).to have_content(order.id)
+    expect(page).to have_content(item.title)
+    expect(page).to have_content("Completed")
+  end
+
 end
