@@ -26,7 +26,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/dashboard', to: 'dashboard#show'
+    patch '/dashboard', to: 'dashboard#update'
     resources :users, only: [:edit, :update]
   end
+
+
 
 end
