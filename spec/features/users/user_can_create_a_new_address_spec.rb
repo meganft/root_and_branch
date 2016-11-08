@@ -14,7 +14,7 @@ describe "A user can create a new address" do
 
     click_button "Create Address"
 
-    expect(current_path).to eq(dashboard_path)
+    expect(current_path).to eq(cart_path)
     expect(page).to have_content("New address created!")
     expect(page).to have_content("100 Main Street")
   end
