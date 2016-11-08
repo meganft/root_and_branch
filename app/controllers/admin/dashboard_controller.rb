@@ -1,9 +1,11 @@
 class Admin::DashboardController < Admin::BaseController
-  include DashboardHelper
 
   def show
     @statuses = Status.left_outer_joins(:orders).select('statuses.*, COUNT(orders.*)').group('statuses.id')
-    filter_orders(params)
+    @orders = DashboardHelper.filter_orders(params)
+    if params[:status] && params[:status] != ("Completed" || "Ordered" || "Paid" || "Cancelled")
+      flash[:warning] = "Filter does not exist"
+    end
   end
 
   def update
