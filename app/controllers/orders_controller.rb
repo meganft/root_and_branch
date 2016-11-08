@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @status = Status.where(name: "ordered").first_or_create
+    @status = Status.where(name: "Ordered").first_or_create
     @order = Order.new(user: current_user, status: @status)
     @order_completion = OrderCompletion.new(@order, session[:cart])
     if @order_completion.create
@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
       session.delete(:cart)
       redirect_to order_path(@order)
     else
-      flash[:alert] = "Order did not submit"
+      flash[:danger] = "Order did not submit"
       redirect_to cart_path
     end
   end

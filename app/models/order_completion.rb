@@ -8,7 +8,7 @@ class OrderCompletion
   end
 
   def create
-    add_items_to_order if @order.save
+    add_items_to_order if !@cart.nil? && @order.save
   end
 
   def add_items_to_order

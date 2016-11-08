@@ -1,0 +1,22 @@
+<h2>Edit <%= @item.title %> </h2>
+
+<%= form_for [:admin, @item] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+
+  <%= f.label :price %>
+  <%= f.number_field :price, :step => "0.01" %>
+
+  <%= f.label :retired, "retired", :value => true %>
+  <%= f.radio_button :retired, true %>
+  <%= f.label :retired, "active", :value => false %>
+  <%= f.radio_button :retired, false %>
+
+  <%= f.submit %>
+<% end %>
