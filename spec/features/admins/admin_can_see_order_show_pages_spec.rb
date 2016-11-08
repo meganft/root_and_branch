@@ -39,6 +39,7 @@ describe "admin sees user show page" do
 
     expect(page).to have_content(order.created_at.to_date)
     expect(page).to have_content(user.name.capitalize)
+    expect(page).to have_content(address.street)
     expect(page).to have_link(item.title, href: item_path(item))
     expect(page).to have_link(item2.title, href: item_path(item2))
     expect(page).to have_content("Quantity: 1")
