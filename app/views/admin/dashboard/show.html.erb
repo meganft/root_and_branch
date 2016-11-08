@@ -1,21 +1,19 @@
 <div class="container">
   <div class="displaypage">
     <h2> Admin Dashboard </h2>
-
+<hr>
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-md-6">
         <h4>Order Statuses</h4>
         <div class="order-statuses">
           <% @statuses.each do |status| %>
-          <li><%=link_to status.name, admin_dashboard_path(status: status.name) %> <span class="tag tag-pill tag-default"> <%= status.orders.count %></span> </li>
+          <li><%=link_to status.name.capitalize, admin_dashboard_path(status: status.name) %> <span class="tag tag-pill tag-default"> <%= status.orders.count %></span> </li>
           <% end %>
           <%= link_to "All Orders", admin_dashboard_path %>
         </div>
       </div>
-      <div class="col-md-2">
 
-      </div>
-      <div class="col-md-5">
+      <div class="col-md-6">
         <h4>Orders</h4>
         <div class="order-list">
           <% @orders.each do |order| %>
