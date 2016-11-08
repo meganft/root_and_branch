@@ -26,7 +26,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/dashboard', to: 'dashboard#show'
+    patch '/dashboard', to: 'dashboard#update'
     resources :users, only: [:edit, :update]
+    resources :items, only: [:index, :edit, :update, :show]
+    # post '/items/:id/edit', to: 'items#update', as: :edit_admin_item
   end
+
+
 
 end

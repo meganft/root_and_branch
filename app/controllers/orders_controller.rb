@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
       session.delete(:cart)
       redirect_to order_path(@order)
     else
-      flash[:alert] = "Order did not submit"
+      flash[:danger] = "Order did not submit"
       redirect_to cart_path
     end
   end
