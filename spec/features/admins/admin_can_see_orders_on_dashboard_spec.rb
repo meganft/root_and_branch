@@ -56,6 +56,7 @@ describe "admin sees list of orders on dashboard" do
 
     expect(page).to have_content "Order #{order3.id}"
     expect(page).to_not have_content "Order #{order4.id}"
+    expect(page).to_not have_content "Filter does not exist"
   end
 
   scenario "admin sees flash message for unknown filter" do
