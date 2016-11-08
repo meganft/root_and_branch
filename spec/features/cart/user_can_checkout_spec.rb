@@ -77,9 +77,7 @@ describe "logged in visitor can checkout" do
 
     visit cart_path
 
-    click_on "Checkout"
-
-    expect(page).to have_content "Order did not submit"
+    expect(page).to_not have_content("Checkout")
     expect(current_path).to eq cart_path
   end
 end
