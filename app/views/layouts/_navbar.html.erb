@@ -5,9 +5,6 @@
     <li class="nav-item">
       <a class="nav-link" href="/">Home</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Stores</a>
-    </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
       <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
@@ -15,6 +12,9 @@
         <%= link_to category.name, category_path(category), class: "dropdown-item" %>
         <% end %>
       </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/items">All  Items</a>
     </li>
   </ul>
   <!-- <ul class="nav navbar-nav" style="display: inline-block;">
