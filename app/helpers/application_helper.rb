@@ -8,4 +8,8 @@ module ApplicationHelper
     number_to_currency(price * quantity)
   end
 
+  def all_categories
+    Category.all
+  end
+
 end
