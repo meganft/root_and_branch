@@ -6,16 +6,12 @@ class OrdersController < ApplicationController
   def show
     if current_admin?
       @order = Order.find(params[:id])
-      @items = @order.items.all
-      @status = @order.status
-      @ordered_items = @items.group(:id).count
+      @ordered_items = @order.items.group(:id).count
       @user = User.find_by(id: @order.user_id)
     elsif current_user && Order.find(params[:id]).user_id == current_user.id
       @order = current_user.orders.find(params[:id])
-      @items = @order.items.all
-      @status = @order.status
-      @ordered_items = @items.group(:id).count
-      @user = User.find_by(id: @order.user_id)
+      @ordered_items = @order.items.group(:id).count
+      @user = current_user
     else
       render file: '/public/404'
     end
