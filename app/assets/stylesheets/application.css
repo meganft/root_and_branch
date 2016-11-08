@@ -61,6 +61,7 @@
 
  .card-text {
    color: #5b5a4f;
+   border-top: 1px solid #ddd;
  }
 
  .split {
@@ -119,9 +120,6 @@
   background-size: cover;
 }
 
-.indexpage h2 {
-
-}
 
 .indexpage .container {
   padding: 150px;
@@ -217,4 +215,10 @@ h4 a {
 .order-list {
   text-align: left;
   list-style-type: none;
+}
+
+.item-grid {
+  width: auto;
+  height: 200px;
+  border: none;
 }
