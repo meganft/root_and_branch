@@ -2,6 +2,9 @@
   <div class="displaypage">
   <h2>All Items</h2>
 
-  <%= render partial: "items" %>
+  <% @items.each do |item| %>
+      <li><%= item.title %>
+      <%= link_to "Edit", edit_admin_item_path(item) %></li>
+    <% end %>
   </div>
 </div>
