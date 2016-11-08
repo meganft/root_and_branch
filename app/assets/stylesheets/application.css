@@ -17,13 +17,18 @@
  .navbar-default {
    background: none;
    border: none;
-
  }
 
  .navbar-default .navbar-nav > li > a {
-     color:#e7e8ce;
-     font-family: 'Bungee Hairline', cursive;
-     font-size: 1.25em;
+   color:#e7e8ce;
+   font-family: 'Bungee Hairline', cursive;
+   font-size: 1.25em;
+ }
+
+ .navbar-default .navbar-nav > li > a:hover {
+   color:#a06103;
+   font-weight: bold;
+   text-shadow: 0 0 1px #a06103;
  }
 
  .navbar-header {
@@ -37,12 +42,6 @@
     font-family: 'Bungee Hairline', cursive;
     font-size: 1.75em;
     float: none;
- }
-
- .navbar-default .navbar-nav a:hover {
-   color:#a06103;
-   font-weight: bold;
-   text-shadow: 0 0 1px #a06103;
  }
 
  a {
@@ -119,10 +118,6 @@
   background-size: cover;
 }
 
-.indexpage h2 {
-
-}
-
 .indexpage .container {
   padding: 150px;
   font-family: 'Raleway', sans-serif;
@@ -131,17 +126,20 @@
 }
 
 .indexpage a {
-  color:#a06103;
   font-family: Helvetica;
   font-weight: lighter;
-  font-size: 1.5em;
+  font-size: 1em;
+}
+
+.indexshop a {
+  color:#a06103;
+  font-size: 1.75em;
 }
 
 .indexpage p {
   font-weight: lighter;
   font-size: 1.2em;
 }
-
 
 .form-holder {
   margin-top: 3em;
@@ -209,12 +207,24 @@ h4 a {
   padding-bottom: 35px;
 }
 
+.showitempage {
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  padding-top: 35px;
+  background-color: #e7e8ce;
+  border-radius: 50px;
+  padding-bottom: 35px;
+  padding-left: 35px;
+}
+
 .order-statuses {
   /*text-align: left;*/
   list-style-type: none;
 }
 
 .order-list {
-  text-align: left;
+  text-align: center;
   list-style-type: none;
 }
