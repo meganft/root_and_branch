@@ -63,4 +63,16 @@ describe "logged in visitor can checkout" do
     expect(page).to_not have_content "#{item1.title}"
     expect(page).to have_content "Total: $0.00"
   end
+
+  scenario "user cannot checkout with no items in cart" do
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit cart_path
+
+    click_on "Checkout"
+
+    expect(page).to have_content "Order did not submit"
+    expect(current_path).to eq cart_path
+  end
 end
