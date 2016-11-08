@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  include SessionHelper
 
   def index
   end

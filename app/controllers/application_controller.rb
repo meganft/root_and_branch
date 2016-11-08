@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :current_admin?
+  helper_method :determine_authorization
 
   def set_cart
     @cart = Cart.new(session[:cart])
@@ -17,6 +18,15 @@ class ApplicationController < ActionController::Base
   def current_admin?
     current_user && current_user.admin?
   end
+
+  def determine_authorization(user)
+    if user.admin?
+      admin_dashboard_path
+    else
+      dashboard_path
+    end
+  end
+
 
 
 end
