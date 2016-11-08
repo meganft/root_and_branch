@@ -38,6 +38,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(session[:cart])
+    params.require(session[:cart]).permit(:address_id)
   end
 end
