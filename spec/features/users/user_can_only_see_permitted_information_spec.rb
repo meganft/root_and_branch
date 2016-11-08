@@ -4,7 +4,8 @@ describe "an authenticated user can only see permitted information" do
   scenario "an authenticated user cannot view another user's private data" do
     user1 = create(:user)
     status = create(:status)
-    order = user1.orders.create(status_id: status.id)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user1.id)
+    order = user1.orders.create(status_id: status.id, address_id: address.id)
     item = create(:item)
     order.items << item
 
@@ -30,7 +31,8 @@ describe "an authenticated user can only see permitted information" do
   scenario "an authenticated user cannot view another user's order" do
     user1 = create(:user)
     status = create(:status)
-    order = user1.orders.create(status_id: status.id)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user1.id)
+    order = user1.orders.create(status_id: status.id, address_id: address.id)
     item = create(:item)
     order.items << item
 

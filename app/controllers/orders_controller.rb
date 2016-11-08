@@ -22,8 +22,8 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @status = Status.where(name: "Ordered").first_or_create
-    @order = Order.new(user: current_user, status: @status)
+    @status = Status.where(name: "ordered").first_or_create
+    @order = Order.new(user: current_user, status: @status, address_id: params[:order][:id])
     @order_completion = OrderCompletion.new(@order, session[:cart])
     if @order_completion.create
       flash[:success] = "Thank you for placing your order"
@@ -38,6 +38,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(session[:cart])
+    params.require(session[:cart]).permit(:address_id)
   end
 end

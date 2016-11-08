@@ -24,7 +24,10 @@
         <span style="color: #a55538"> Total: <%= number_to_currency(@order.order_total) %></span>
       </div>
       <br>
-      Order Status: <strong><%= @status.name.capitalize %></strong> <%= @status.created_at %><br>
+      <p>Order Status: <strong><%= @status.name.capitalize %></strong> <%= @status.created_at %></p>
+      <strong>Shipping To:</strong> <br><%= @order.address.street %><br>
+      <%= @order.address.city %>, <%= @order.address.state %><br>
+      <%= @order.address.zip %><br>
       <hr>
       <h4><%= link_to "Back to your order history", orders_path %></h4>
     </div>

@@ -1,0 +1,27 @@
+
+  <div class="container">
+    <div class="form-holder">
+    <h2>Create a New Address</h2>
+    <hr>
+    <%= form_for @address, class: "form-group" do |f| %>
+      <div class="form-inline">
+        <p class="indent"> <%= f.label :street %>
+        <%= f.text_field :street, class: "form-control" %></p>
+      </div>
+      <div class="form-inline">
+        <p class="indent"> <%= f.label :city %>
+        <%= f.text_field :city, class: "form-control" %></p>
+      </div>
+      <div class="form-inline">
+         <p><%= f.label :state %>
+         <%= f.text_field :state, class: "form-control" %>
+       </div>
+         <div class="form-inline">
+         &ensp;&nbsp;<%= f.label :zip %>
+        <%= f.text_field :zip, class: "form-control"%></p>
+      </div></p>
+      <p><button type="submit" class="btn btn-warning">Create Address</button></p>
+
+    <% end %><br>
+</div>
+  </div>

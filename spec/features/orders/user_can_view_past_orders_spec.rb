@@ -6,10 +6,11 @@ describe "user visits orders index" do
     user1 = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     status = create(:status)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
 
-    order1 = user.orders.create(status_id: status.id)
-    order2 = user.orders.create(status_id: status.id)
-    order3 = user1.orders.create(status_id: status.id)
+    order1 = user.orders.create(status_id: status.id, address_id: address.id)
+    order2 = user.orders.create(status_id: status.id, address_id: address.id)
+    order3 = user1.orders.create(status_id: status.id, address_id: address.id)
 
     visit orders_path
 
@@ -22,7 +23,8 @@ describe "user visits orders index" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     status = create(:status)
-    order = user.orders.create(status_id: status.id)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
+    order = user.orders.create(status_id: status.id, address_id: address.id)
 
     visit orders_path
 
@@ -33,7 +35,8 @@ describe "user visits orders index" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     status = Status.create(name: "Completed")
-    order = user.orders.create(status_id: status.id)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
+    order = user.orders.create(status_id: status.id, address_id: address.id)
     item1 = order.items.create(title: "cat sweater", description: "Beautiful cat sweater", price: 9.99, image: "sweater.jpg")
     item2 = order.items.create(title: "dog sweater", description: "Beautiful dog sweater", price: 9.99, image: "dogsweater.jpg")
 
@@ -54,7 +57,8 @@ describe "user visits orders index" do
     user = User.create(name: "Bob", email: "cats@cats.cats", password: "cats")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     status = Status.create(name: "Completed")
-    order = user.orders.create(status_id: status.id)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
+    order = user.orders.create(status_id: status.id, address_id: address.id)
     item = order.items.create(title: "cat sweater", description: "Beautiful cat sweater", price: 9.99, image: "sweater.jpg")
     order.items << item
 

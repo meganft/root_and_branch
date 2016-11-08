@@ -23,7 +23,8 @@ RSpec.describe Order, type: :model do
     it "returns order total" do
       user = create(:user)
       status = create(:status)
-      order = Order.create(user_id: user.id, status_id: status.id)
+      address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
+      order = address.orders.create(user_id: user.id, status_id: status.id)
       order.items.create(title: "cat sweater", description: "lovely", price: 9.99, image: "cat.jpg", retired: false)
       order.items.create(title: "dog sweater", description: "charming", price: 34.43, image: "dog.jpg", retired: false)
 
