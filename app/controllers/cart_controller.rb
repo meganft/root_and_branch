@@ -1,6 +1,7 @@
 class CartController < ApplicationController
 
   def show
+    @order = Order.new
     @items = @cart.contents
     @total_price = @cart.total_price
   end

@@ -5,6 +5,7 @@ describe "logged in visitor can checkout" do
     user = create(:user)
     item = create(:item)
     status = Status.create(name: "ordered")
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -12,7 +13,9 @@ describe "logged in visitor can checkout" do
     click_on "Add to cart"
     visit cart_path
 
-    expect(page).to have_link("Checkout", href: orders_path)
+
+    expect(page).to have_button("Checkout")
+    select address.street, from: :order_id, visible: false
     click_on "Checkout"
 
     expect(page).to have_content "Order Status"
@@ -24,6 +27,7 @@ describe "logged in visitor can checkout" do
     user = create(:user)
     item1, item2 = create_list(:item, 2)
     status = Status.create(name: "ordered")
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -37,6 +41,7 @@ describe "logged in visitor can checkout" do
     click_on "Add to cart"
     visit cart_path
 
+    select address.street, from: :order_id, visible: false
     click_on "Checkout"
 
     expect(page).to have_content "Order Status"
@@ -49,6 +54,7 @@ describe "logged in visitor can checkout" do
     user = create(:user)
     item1, item2 = create_list(:item, 2)
     status = Status.create(name: "ordered")
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -56,6 +62,7 @@ describe "logged in visitor can checkout" do
     click_on "Add to cart"
     visit cart_path
 
+    select address.street, from: :order_id, visible: false
     click_on "Checkout"
 
     visit cart_path
@@ -70,9 +77,7 @@ describe "logged in visitor can checkout" do
 
     visit cart_path
 
-    click_on "Checkout"
-
-    expect(page).to have_content "Order did not submit"
+    expect(page).to_not have_content("Checkout")
     expect(current_path).to eq cart_path
   end
 end

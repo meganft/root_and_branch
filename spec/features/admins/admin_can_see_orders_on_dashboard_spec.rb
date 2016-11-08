@@ -6,9 +6,10 @@ describe "admin sees list of orders on dashboard" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     item = create(:item)
     status = Status.create(name: "Ordered")
-    order1 = Order.create(status_id: status.id, user_id: 1)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: admin.id)
+    order1 = Order.create(status_id: status.id, user_id: 1, address_id: address.id)
     order1.items << item
-    order2 = Order.create(status_id: status.id, user_id: 1)
+    order2 = Order.create(status_id: status.id, user_id: 1, address_id: address.id)
     order2.items << item
 
     visit admin_dashboard_path
@@ -19,18 +20,19 @@ describe "admin sees list of orders on dashboard" do
     expect(page).to have_link "Order #{order2.id} placed #{order2.created_at.to_date}", href: order_path(order2)
   end
 
+
   scenario "admin sees list of statuses as filterable links and count on dashboard" do
     admin = create(:admin)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     item = create(:item)
 
-
     status1 = Status.create(name: "Ordered")
     status2 = Status.create(name: "Completed")
-    order1 = Order.create(status_id: status1.id, user_id: admin.id)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: admin.id)
+    order1 = Order.create(status_id: status1.id, user_id: admin.id, address_id: address.id)
     order1.items << item
-    order2 = Order.create(status_id: status1.id, user_id: admin.id)
+    order2 = Order.create(status_id: status1.id, user_id: admin.id, address_id: address.id)
     order2.items << item
 
     visit admin_dashboard_path
@@ -47,8 +49,9 @@ describe "admin sees list of orders on dashboard" do
     item = create(:item)
     status1 = Status.create(name: "Completed")
     status2 = Status.create(name: "Ordered")
-    order3 = Order.create(status_id: status1.id, user_id: admin.id)
-    order4 = Order.create(status_id: status2.id, user_id: admin.id)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: admin.id)
+    order3 = Order.create(status_id: status1.id, user_id: admin.id, address_id: address.id)
+    order4 = Order.create(status_id: status2.id, user_id: admin.id, address_id: address.id)
     order3.items << item
     order4.items << item
 
@@ -72,7 +75,8 @@ describe "admin sees list of orders on dashboard" do
   scenario "admin can see other users' order show pages" do
     user = create(:user)
     status = Status.create(name: "Completed")
-    order = user.orders.create(status_id: status.id)
+    address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
+    order = user.orders.create(status_id: status.id, address_id: address.id)
     item = create(:item)
     order.items << item
 
