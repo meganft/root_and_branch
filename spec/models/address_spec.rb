@@ -36,4 +36,18 @@ RSpec.describe Address, type: :model do
         end
     end
   end
+
+  describe "relationships" do
+    it "belongs to a user" do
+      user = create(:user)
+      address = Address.new(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
+      expect(address).to respond_to(:user)
+    end
+
+    it "has many orders" do
+      user = create(:user)
+      address = Address.new(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
+      expect(address).to respond_to(:orders)
+    end
+  end
 end

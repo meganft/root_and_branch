@@ -34,10 +34,37 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
   describe "relationships" do
     it "has many orders" do
       user = create(:user)
       expect(user).to respond_to(:orders)
+    end
+
+    it "has many addresses" do
+      user = create(:user)
+      expect(user).to respond_to(:addresses)
+    end
+  end
+
+  describe ".has_order" do
+    it "returns true if user has order" do
+      user = create(:user)
+      address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user.id)
+      status = create(:status)
+      order = user.orders.create(address_id: address.id, status_id: status.id)
+
+      expect(user.has_order(order.id)).to eq(true)
+    end
+
+    it "returns false if user does not has order" do
+      user = create(:user)
+      user2 = create(:user)
+      address = Address.create(street: "2447 Julian Street", city: "Denver", state: "CO", zip: 80211, user_id: user2.id)
+      status = create(:status)
+      order = user2.orders.create(address_id: address.id, status_id: status.id)
+
+      expect(user.has_order(order.id)).to eq(false)
     end
   end
 end
