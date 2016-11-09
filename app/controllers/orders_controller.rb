@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @status = Status.where(name: "ordered").first_or_create
+    @status = Status.where(name: "Ordered").first_or_create
     @order = Order.new(user: current_user, status: @status, address_id: params[:order][:id])
     @order_completion = OrderCompletion.new(@order, session[:cart])
     if @order_completion.create

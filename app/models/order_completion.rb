@@ -1,6 +1,6 @@
 class OrderCompletion
 
-  attr_reader :order
+  attr_reader :order, :cart
 
   def initialize(order, cart)
     @order = order
@@ -10,6 +10,8 @@ class OrderCompletion
   def create
     add_items_to_order if !@cart.nil? && !@cart.empty? && @order.save
   end
+
+  private
 
   def add_items_to_order
     @cart.each do |id, quantity|
