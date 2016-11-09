@@ -1,5 +1,4 @@
 class Category < ApplicationRecord
-
   validates :name, presence: true
   validates :name, uniqueness: true
 
@@ -15,6 +14,4 @@ class Category < ApplicationRecord
   def set_slug
     slug = name.downcase.gsub(" ", "-")
   end
-
-
 end
