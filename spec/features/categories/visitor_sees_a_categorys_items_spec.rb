@@ -25,5 +25,4 @@ describe "visitor sees a category's items" do
     expect(page).to have_content @item1.title
     expect(page).to_not have_content item3.title
   end
-
 end

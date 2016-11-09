@@ -3,7 +3,6 @@
     <h2 class="cart_header"> Your Cart </h2>
     <hr>
     <%= render partial: "shared/order" %>
-
     <div class="row">
       <% if current_user %>
         <% if !current_user.addresses.all.empty? %>
@@ -11,12 +10,11 @@
           <p><%= f.collection_select(:id, current_user.addresses.all, :id, :street, options = {:prompt => "Select an Address"}, class: "address_dropdown") %></p>
           <p><%= f.submit "Checkout", class: "btn btn-success" %></p>
           <% end %>
-          <% end %>
+        <% end %>
         <%= link_to "Add a New Address", new_address_path %>
       <% else %>
         <%= link_to "Login", login_path %> or <%= link_to "Create Account", new_user_path %> to Checkout
       <% end %>
-
     </div>
   </div>
 </div>

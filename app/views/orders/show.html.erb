@@ -4,12 +4,13 @@
     <h4 class="cart_header"> Placed <%= @order.created_at.to_date %> by <%= @user.name.capitalize %></h4>
     <hr>
     <% @ordered_items.each do |id, count| %>
-    <div class="row">
-      <div class="col-md-3"></div>
-      <% item = find_item(id) %>
-      <div class="item_<%= item.id %>">
-        <div class="col-md-3">
-          <%= image_tag(item.image, class: "img-thumbnail") %></div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <% item = find_item(id) %>
+        <div class="item_<%= item.id %>">
+          <div class="col-md-3">
+            <%= image_tag(item.image, class: "img-thumbnail") %>
+          </div>
           <div class="col-md-6" style="text-align: left">
             <p>Title: <%= link_to item.title, item_path(item) %></p>
             <p>Price: <span style="color: #a55538"> <%= number_to_currency(item.price) %> </span></p>
@@ -19,22 +20,22 @@
           </div>
         </div>
       </div>
-      <% end %>
-      <div class="row">
-        <span style="color: #a55538"> Total: <%= number_to_currency(@order.order_total) %></span>
-      </div>
-      <br>
-      <p>Order Status: <strong><%= @order.status.name.capitalize %></strong> <%= @order.status.created_at %></p>
-      <strong>Shipping To:</strong> <br><%= @order.address.street %><br>
-      <%= @order.address.city %>, <%= @order.address.state %><br>
-      <%= @order.address.zip %><br>
-      <hr>
-      <h4>
+    <% end %>
+    <div class="row">
+      <span style="color: #a55538"> Total: <%= number_to_currency(@order.order_total) %></span>
+    </div>
+    <br>
+    <p>Order Status: <strong><%= @order.status.name.capitalize %></strong> <%= @order.status.created_at %></p>
+    <strong>Shipping To:</strong> <br><%= @order.address.street %><br>
+    <%= @order.address.city %>, <%= @order.address.state %><br>
+    <%= @order.address.zip %><br>
+    <hr>
+    <h4>
       <% if current_admin? %>
-      <%= link_to "Back to Dashboard", admin_dashboard_path %>
+        <%= link_to "Back to Dashboard", admin_dashboard_path %>
       <% else %>
-      <%= link_to "Back to Order History", orders_path %>
+        <%= link_to "Back to Order History", orders_path %>
       <% end %>
     </h4>
-    </div>
   </div>
+</div>

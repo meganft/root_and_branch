@@ -68,5 +68,4 @@ describe "user visits orders index" do
       expect(page).to have_content "Quantity: 2"
     end
   end
-
 end

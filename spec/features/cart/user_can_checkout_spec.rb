@@ -11,8 +11,8 @@ describe "logged in visitor can checkout" do
 
     visit item_path(item)
     click_on "Add to cart"
-    visit cart_path
 
+    visit cart_path
 
     expect(page).to have_button("Checkout")
     select address.street, from: :order_id, visible: false

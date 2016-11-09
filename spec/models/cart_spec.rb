@@ -60,5 +60,4 @@ describe "cart model tests" do
     @cart.remove_item(1)
     expect(@cart.contents).to eq({})
   end
-
 end
