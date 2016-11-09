@@ -26,9 +26,4 @@ class ApplicationController < ActionController::Base
       dashboard_path
     end
   end
-
-
-
-
-
 end

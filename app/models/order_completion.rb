@@ -25,5 +25,4 @@ class OrderCompletion
       @order.items << item
     end
   end
-
 end

@@ -8,7 +8,7 @@ describe "admin can log in" do
     fill_in "email", with: admin.email
     fill_in "password", with: admin.password
     click_button "Login"
-    
+
     expect(current_path).to eq(admin_dashboard_path)
     expect(page).to have_content "Admin Dashboard"
   end

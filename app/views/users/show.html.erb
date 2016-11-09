@@ -1,20 +1,19 @@
-
 <div class="usershow">
   <h2>Welcome <%= current_user.name.capitalize %>!</h2>
   <%= link_to "See your past orders", orders_path %>
   <hr>
   <% unless current_user.addresses.all.empty? %>
-  <div class="row">
-    <h4>Addresses:</h4>
-    <% @addresses.each do |address| %>
-    <span class="addresses">
-    <div class="col-md-4">
-      <%= address.street %><br>
-      <%= address.city %>, <%= address.state %><br>
-      <%= address.zip %>
+    <div class="row">
+      <h4>Addresses:</h4>
+      <% @addresses.each do |address| %>
+        <span class="addresses">
+          <div class="col-md-4">
+            <%= address.street %><br>
+            <%= address.city %>, <%= address.state %><br>
+            <%= address.zip %>
+          </div>
+        </span>
+      <% end %>
     </div>
-  </span>
-    <% end %>
-  </div>
   <% end %>
 </div>

@@ -85,7 +85,7 @@
 }
 
 .btn-success:hover, .btn-success:focus {
-  background-color: #014c8c ;
+  background-color: #014c8c !important;
 }
 
 .btn-success:active{
@@ -222,6 +222,7 @@ h4 a {
   border-radius: 50px;
   padding-bottom: 35px;
   padding-left: 35px;
+  padding-right: 30px;
 }
 
 .order-statuses {

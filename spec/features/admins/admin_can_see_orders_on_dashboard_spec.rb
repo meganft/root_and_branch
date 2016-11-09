@@ -91,5 +91,4 @@ describe "admin sees list of orders on dashboard" do
     expect(page).to have_content(item.title)
     expect(page).to have_content("Completed")
   end
-
 end

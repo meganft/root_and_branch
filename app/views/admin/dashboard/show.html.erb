@@ -1,32 +1,31 @@
 <div class="container">
   <div class="displaypage">
     <h2> Admin Dashboard </h2>
-<hr>
+    <hr>
     <div class="row">
       <div class="col-md-6">
         <h4>Order Statuses</h4>
         <div class="order-statuses">
           <% @statuses.each do |status| %>
-          <li><%=link_to status.name.capitalize, admin_dashboard_path(status: status.name) %> <span class="tag tag-pill tag-default"> <%= status.orders.count %></span> </li>
+            <li><%=link_to status.name.capitalize, admin_dashboard_path(status: status.name) %> <span class="tag tag-pill tag-default"> <%= status.orders.count %></span> </li>
           <% end %>
           <%= link_to "All Orders", admin_dashboard_path %>
         </div>
       </div>
-
       <div class="col-md-6">
         <h4>Orders</h4>
         <div class="order-list">
           <% @orders.each do |order| %>
-          <li class="order_<%="#{order.id}"%>"><%= link_to "Order #{order.id} placed #{order.created_at.to_date}", order_path(order) %>
-            <% if order.status.name == "Paid" || order.status.name == "Ordered" %>
-              <%= link_to "Cancel", admin_dashboard_path(order_id: order.id, change_status: "Cancel"), method: "patch", class:"btn btn-danger btn-sm" %>
-            <% end %>
-            <% if order.status.name == "Ordered" %>
-              <%= link_to "Paid", admin_dashboard_path(order_id: order.id, change_status: "Paid"), method: "patch", class:"btn btn-warning btn-sm " %>
-            <% end %>
-            <% if order.status.name == "Paid" %>
-              <%= link_to "Completed", admin_dashboard_path(order_id: order.id, change_status: "Completed"), method: "patch", class:"btn btn-success btn-sm" %>
-            <% end %>
+            <li class="order_<%="#{order.id}"%>"><%= link_to "Order #{order.id} placed #{order.created_at.to_date}", order_path(order) %>
+              <% if order.status.name == "Paid" || order.status.name == "Ordered" %>
+                <%= link_to "Cancel", admin_dashboard_path(order_id: order.id, change_status: "Cancel"), method: "patch", class:"btn btn-danger btn-sm" %>
+              <% end %>
+              <% if order.status.name == "Ordered" %>
+                <%= link_to "Paid", admin_dashboard_path(order_id: order.id, change_status: "Paid"), method: "patch", class:"btn btn-warning btn-sm " %>
+              <% end %>
+              <% if order.status.name == "Paid" %>
+                <%= link_to "Completed", admin_dashboard_path(order_id: order.id, change_status: "Completed"), method: "patch", class:"btn btn-success btn-sm" %>
+              <% end %>
             </li>
           <% end  %>
         </div>

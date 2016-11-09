@@ -81,5 +81,4 @@ describe "visitor adjusts quantity of item in cart" do
       expect(page).to have_content "Subtotal: $#{subtotal}0"
     end
   end
-
 end

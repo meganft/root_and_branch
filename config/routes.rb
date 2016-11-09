@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :items, only: [:index, :show]
 
@@ -29,9 +28,5 @@ Rails.application.routes.draw do
     patch '/dashboard', to: 'dashboard#update'
     resources :users, only: [:edit, :update]
     resources :items, only: [:index, :edit, :update, :show]
-    # post '/items/:id/edit', to: 'items#update', as: :edit_admin_item
   end
-
-
-
 end

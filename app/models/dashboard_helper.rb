@@ -9,5 +9,4 @@ module DashboardHelper
       Order.all
     end
   end
-
 end

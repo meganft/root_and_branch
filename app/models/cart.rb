@@ -1,5 +1,4 @@
 class Cart
-
   attr_reader :contents
 
   def initialize(initial_contents)
@@ -31,6 +30,4 @@ class Cart
   def remove_item(item_id)
     contents.delete(item_id.to_s)
   end
-
-
 end

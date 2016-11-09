@@ -52,6 +52,5 @@ describe "admin can change order status" do
     end
 
     expect(page).to have_content "Completed 1"
-    # expect(order2.status.name).to eq(@status3.name)
   end
 end
