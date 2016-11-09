@@ -2,14 +2,14 @@
   <div class ="displaypage">
     <h2> <%= current_user.name.capitalize %>'s Order History </h2><hr>
     <% @orders.each do |order| %>
-    <%= link_to "Order ##{order.id} placed #{order.created_at.to_date}", order_path(order) %><br>
+      <%= link_to "Order ##{order.id} placed #{order.created_at.to_date}", order_path(order) %><br>
     <% end %><hr>
     <h4>
-    <% if current_admin? %>
-      <%= link_to "Back to your account page", admin_dashboard_path %>
-    <% else %>
-      <%= link_to "Back to your account page", dashboard_path %>
-    <% end %>
-  </h4>
+      <% if current_admin? %>
+        <%= link_to "Back to your account page", admin_dashboard_path %>
+      <% else %>
+        <%= link_to "Back to your account page", dashboard_path %>
+      <% end %>
+    </h4>
   </div>
 </div>
