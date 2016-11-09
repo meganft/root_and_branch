@@ -85,7 +85,7 @@
 }
 
 .btn-success:hover, .btn-success:focus {
-  background-color: #014c8c ;
+  background-color: #014c8c !important;
 }
 
 .btn-success:active{
