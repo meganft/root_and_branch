@@ -1,10 +1,19 @@
 <div class="container">
   <div class="row">
     <% @items.each do |item| %>
-      <div class="col-md-3"><div class="item_<%=item.id%>"> <div class="card"><%= link_to image_tag(item.image, class: "img-thumbnail"), item_path(item) %>
-      <div class="card-text"><p class="split"><%= item.title %> <span><%= number_to_currency(item.price) %></span>
-        <%= button_to "Edit", edit_admin_item_path(item), method: "get", class: "btn btn-success btn-sm" %>
-      </p></div></div></div></div>
+      <div class="col-md-3">
+        <div class="item_<%=item.id%>">
+          <div class="card">
+            <%= link_to image_tag(item.image, class: "img-thumbnail"), item_path(item) %>
+            <div class="card-text">
+              <p class="split">
+                <%= item.title %> <span><%= number_to_currency(item.price) %></span>
+                <%= button_to "Edit", edit_admin_item_path(item), method: "get", class: "btn btn-success btn-sm" %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

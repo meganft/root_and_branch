@@ -1,20 +1,22 @@
-
-  <div class="container">
-    <div class="form-holder">
+<div class="container">
+  <div class="form-holder">
     <h2> Edit My Account </h2>
     <hr>
     <%= form_for [:admin, @user], class: "form-group" do |f| %>
       <div class="form-inline">
-        <p class="indent"> <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control" %></p>
+        <p class="indent">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </p>
       </div>
       <div class="form-inline">
-        <p class="indent"> <%= f.label :email %>
-        <%= f.text_field :email, class: "form-control" %></p>
+        <p class="indent">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: "form-control" %>
+        </p>
       </div>
       </p>
       <p><button type="submit" class="btn btn-warning">Update Account</button></p>
-
     <% end %><br>
-</div>
   </div>
+</div>
