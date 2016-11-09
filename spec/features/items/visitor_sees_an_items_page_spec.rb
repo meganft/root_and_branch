@@ -19,5 +19,4 @@ describe "they visit an item page" do
     expect(current_path).to eq item_path(@item)
     expect(page).to have_content "Successfully added #{@item.title} to your cart."
   end
-
 end
