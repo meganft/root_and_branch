@@ -19,7 +19,7 @@
             <p>Subtotal: <%= calculate_subtotal(item.price, count) %></p>
           </div>
         </div>
-      </div>
+      </div><hr>
     <% end %>
     <div class="row">
       <span style="color: #a55538"> Total: <%= number_to_currency(@order.order_total) %></span>
