@@ -23,8 +23,4 @@ describe "an order is completed" do
 
     expect(complete.create).to_not be_truthy
   end
-
-
-
-
 end
