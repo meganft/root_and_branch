@@ -22,4 +22,11 @@ describe "dashboard helper filters orders" do
 
     expect(orders).to_not eq(@status.orders)
   end
+
+  it "returns all orders if no filter present" do
+    params = {"action"=>"show"}
+    orders = DashboardHelper.filter_orders(params)
+
+    expect(orders).to eq(@status.orders)
+  end
 end
