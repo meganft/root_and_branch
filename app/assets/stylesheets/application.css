@@ -60,6 +60,7 @@
 
  .card-text {
    color: #5b5a4f;
+   border-top: 1px solid #ddd;
  }
 
  .split {
@@ -233,4 +234,10 @@ h4 a {
   text-align: left;
   list-style-type: none;
   padding-left: 140px;
+}
+
+.item-grid {
+  width: auto;
+  height: 200px;
+  border: none;
 }
