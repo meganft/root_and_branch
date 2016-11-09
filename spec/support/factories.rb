@@ -12,7 +12,6 @@ FactoryGirl.define do
     sequence :image do |n|
       "img tag #{n}"
     end
-
   end
 
   sequence :name do |n|
@@ -43,6 +42,4 @@ FactoryGirl.define do
   factory :status do
     name
   end
-
-
 end
