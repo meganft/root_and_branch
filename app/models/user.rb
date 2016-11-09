@@ -10,10 +10,12 @@ class User < ApplicationRecord
 
   enum role: [:default, :admin]
 
-
   def has_order(id)
-    if orders.find(id)
+    if orders.all.include?(Order.find(id))
       true
+    else
+      false
     end
   end
+
 end

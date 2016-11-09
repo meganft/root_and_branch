@@ -10,7 +10,7 @@ RSpec.describe Category, type: :model do
     end
 
     context "valid attributes" do
-      it "is valid with a title" do
+      it "is valid with a name" do
         category = create(:category)
         expect(category).to be_valid
       end

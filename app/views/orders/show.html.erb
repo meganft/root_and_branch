@@ -29,6 +29,12 @@
       <%= @order.address.city %>, <%= @order.address.state %><br>
       <%= @order.address.zip %><br>
       <hr>
-      <h4><%= link_to "Back to your order history", orders_path %></h4>
+      <h4>
+      <% if current_admin? %>
+      <%= link_to "Back to Dashboard", admin_dashboard_path %>
+      <% else %>
+      <%= link_to "Back to Order History", orders_path %>
+      <% end %>
+    </h4>
     </div>
   </div>
