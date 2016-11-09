@@ -1,5 +1,4 @@
 class OrderCompletion
-
   attr_reader :order
 
   def initialize(order, cart)
@@ -23,5 +22,4 @@ class OrderCompletion
       @order.items << item
     end
   end
-
 end
