@@ -15,7 +15,7 @@ describe "admin can edit existing item" do
     fill_in "item[description]", with: "new description"
     fill_in "item[image]", with: "carrots.jpeg"
     choose "retired"
-    click_on "Update Item"
+    click_on "Update #{item.title}"
 
     expect(page).to have_content "New title"
     expect(page).to_not have_content "old title"

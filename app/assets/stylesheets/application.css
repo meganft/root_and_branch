@@ -175,6 +175,26 @@ h4 a {
   padding-left: 2em;
 }
 
+.radio-button {
+  display: inline-flex;
+  align-items: flex-end;
+}
+
+label {
+  text-align: right;
+  width: 30%;
+
+}
+
+label, input {
+  display: inline-block;
+}
+
+label + input {
+  width: 30%;
+  margin: 0 30% 0 4%;
+}
+
 .indentaddress {
   padding-left: 1em;
 }

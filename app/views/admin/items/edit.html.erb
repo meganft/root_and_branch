@@ -4,7 +4,7 @@
     <hr>
     <%= form_for [:admin, @item], class: "form-group" do |f| %>
     <div class="form-inline">
-      <p>
+      <p class="">
         <%= f.label :title %>
         <%= f.text_field :title %>
       </p>
@@ -28,7 +28,7 @@
       </p>
     </div>
     <div class="form-inline">
-      <p class="">
+      <p class="radio-button">
         <%= f.label :retired, "retired", :value => true %>
         <%= f.radio_button :retired, true %>
         <%= f.label :retired, "active", :value => false %>
@@ -36,7 +36,7 @@
       </p>
     </div>
       <p><button type="submit" class="btn btn-warning">
-        Edit <%= "#{@item.title}" %></button></p>
+        Update <%= "#{@item.title}" %></button></p>
     <% end %> <br>
   </div>
 </div>
