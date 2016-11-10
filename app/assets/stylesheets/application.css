@@ -180,7 +180,7 @@ h4 a {
   align-items: flex-end;
 }
 
-label {
+/*label {
   text-align: right;
   width: 30%;
 
@@ -193,7 +193,7 @@ label, input {
 label + input {
   width: 30%;
   margin: 0 30% 0 4%;
-}
+}*/
 
 .indentaddress {
   padding-left: 1em;
