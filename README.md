@@ -5,6 +5,8 @@ This application is a mock store called Root & Branch.
 
 Root & Branch sells socially responsible goods.
 
+![root-and-branch](https://s3-us-west-2.amazonaws.com/turingmentorship/root-and-branch.gif)
+
 The live app can be accessed at https://root-and-branch.herokuapp.com/
 
 To run locally:
